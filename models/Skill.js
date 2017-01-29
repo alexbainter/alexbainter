@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
-const ratingModelName = require('./Rating');
-const name = 'Skill';
+const Rating = require('./Rating');
 
 const SkillSchema = new mongoose.Schema({
     name: String,
     rating: {
-        type: mongoose.Schema.Types.ObjectId, ref: ratingModelName
+        type: mongoose.Schema.Types.ObjectId, ref: Rating.modelName
     }
 });
 
-mongoose.model(name, SkillSchema);
-
-module.exports = name ;
+module.exports = mongoose.model('Skill', SkillSchema);

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const skillModelName = require('./Skill');
-const name = 'Position';
+const Skill = require('./Skill');
 
 const PositionSchema = new mongoose.Schema({
     name: String,
@@ -10,10 +9,8 @@ const PositionSchema = new mongoose.Schema({
     startDate: Date,
     endDate: Date,
     skills: [{
-        type: mongoose.Schema.Types.ObjectId, ref: skillModelName
+        type: mongoose.Schema.Types.ObjectId, ref: Skill.modelName
     }]
 });
 
-mongoose.model(name, PositionSchema);
-
-module.exports = name;
+module.exports = mongoose.model('Position', PositionSchema);

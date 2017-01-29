@@ -1,11 +1,11 @@
-const ratingModelName = require('./Rating');
-const skillModelName = require('./Skill');
-const projectModelName = require('./Project');
-const positionModelName = require('./Position');
+const Rating = require('./Rating');
+const Skill = require('./Skill');
+const Project = require('./Project');
+const Position = require('./Position');
 
 module.exports = {
-    rating: ratingModelName,
-    skill: skillModelName,
-    project: projectModelName,
-    position: positionModelName
+    Rating,
+    Skill,
+    Project,
+    Position
 }

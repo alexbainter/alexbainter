@@ -1,17 +1,14 @@
 const mongoose = require('mongoose');
-const skillModelName = require('./Skill');
-const name = 'Project';
+const Skill = require('./Skill');
 
 const ProjectSchema = new mongoose.Schema({
     name: String,
     linkURL: String,
     description: String,
-    completionDate: Date
+    completionDate: Date,
     skills: [{
-        type: mongoose.Schema.Types.ObjectId, ref: skillModelName
+        type: mongoose.Schema.Types.ObjectId, ref: Skill.modelName
     }]
 });
 
-mongoose.model(name, ProjectSchema);
-
-module.exports = name;
+module.exports = mongoose.model('Project', ProjectSchema);
