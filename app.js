@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
-const modelNames = require('./models');
+const models = require('./models');
+const dbConfig = require('./config/db');
+const mongoose = require('mongoose');
 
-console.log(modelNames.skill);
+mongoose.connect(dbConfig.path);
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
