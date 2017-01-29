@@ -1,0 +1,25 @@
+{
+  "name": "alexbainter.com",
+  "version": "1.0.0",
+  "description": "My personal portfolio website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metalex9/alexbainter.git"
+  },
+  "author": "Alex Bainter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metalex9/alexbainter/issues"
+  },
+  "homepage": "https://github.com/metalex9/alexbainter#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.1",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.7.9"
+  }
+}
