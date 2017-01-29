@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const name = 'Rating';
 
 const RatingSchema = mongoose.Schema({
     name: String,
@@ -6,4 +7,6 @@ const RatingSchema = mongoose.Schema({
     displayOrder: Number
 });
 
-const Rating = mongoose.model('Rating', RatingSchema);
+mongoose.model(name, RatingSchema);
+
+module.exports = name;
