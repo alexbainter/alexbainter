@@ -7,6 +7,8 @@ const PositionSchema = new mongoose.Schema({
     company: String,
     linkURL: String,
     description: String,
+    startDate: Date,
+    endDate: Date,
     skills: [{
         type: mongoose.Schema.Types.ObjectId, ref: skillModelName
     }]

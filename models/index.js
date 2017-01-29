@@ -1,7 +1,7 @@
 const ratingModelName = require('./Rating');
 const skillModelName = require('./Skill');
 const projectModelName = require('./Project');
-const positionModelName = require('.Position');
+const positionModelName = require('./Position');
 
 module.exports = {
     rating: ratingModelName,
