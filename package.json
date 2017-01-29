@@ -4,7 +4,8 @@
   "description": "My personal portfolio website.",
   "main": "index.js",
   "scripts": {
-    "seed": "node seed/seed.js"
+    "seed": "node seed/seed.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
