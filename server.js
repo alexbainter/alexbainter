@@ -1,13 +1,17 @@
 const express = require('express');
-const app = express();
+const mongoose = require('mongoose');
+const path = require('path');
 const models = require('./models');
 const dbConfig = require('./config/db');
-const mongoose = require('mongoose');
+const { defaultHTML, clientDir } = require('./config/client');
+const app = express();
 
 mongoose.connect(dbConfig.path);
 
+app.use(express.static(path.resolve(__dirname, clientDir)));
+
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.sendFile(path.resolve(__dirname, defaultHTML));
 });
 
 app.listen(3000, () => {
