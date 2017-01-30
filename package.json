@@ -2,7 +2,7 @@
   "name": "alexbainter.com",
   "version": "1.0.0",
   "description": "My personal portfolio website.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "seed": "node seed/seed.js",
     "start": "node server.js"
@@ -21,6 +21,12 @@
     "body-parser": "^1.16.0",
     "express": "^4.14.1",
     "method-override": "^2.3.7",
-    "mongoose": "^4.7.9"
+    "mongoose": "^4.7.9",
+    "react": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.0"
   }
 }
