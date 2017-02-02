@@ -6,5 +6,16 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, clientDistDir),
         filename: 'bundle.js'
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
+    module: {
+        rules: [
+            {
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            }
+        ]
     }
 };
