@@ -18,7 +18,7 @@ const data = [
     },
     {
         name: 'Expert',
-        description: 'I\'m comfortable teaching other about this, but I\'m not done learning.',
+        description: 'I\'m comfortable teaching others about this, but I\'m not done learning.',
         displayOrder: 40
     },
     {

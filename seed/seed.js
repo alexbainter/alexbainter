@@ -5,6 +5,8 @@ const saveSkills = require('./skills');
 
 mongoose.connect(dbConfig.path);
 
+mongoose.Promise = global.Promise;
+
 Promise.all(saveRatings())
 .then(() => {
     return Promise.all(saveSkills())
