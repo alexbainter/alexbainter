@@ -1,5 +1,6 @@
 const path = require('path');
-const { appEntry, clientDistDir} = require('./config/client');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const { appEntry, clientDistDir, compiledStyles} = require('./config/client');
 
 module.exports = {
     entry: path.resolve(__dirname, appEntry),
@@ -14,8 +15,18 @@ module.exports = {
         rules: [
             {
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                use: 'babel-loader'
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader!sass-loader',
+              }),
             }
         ]
     },
+    plugins: [
+        new ExtractTextPlugin('site.css')
+    ]
 };
