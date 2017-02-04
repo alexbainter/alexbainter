@@ -5,7 +5,7 @@ const models = require('./models');
 const api = require('./api');
 const dbConfig = require('./config/db');
 const { defaultHTML, clientDir } = require('./config/client');
-const { port } = require('./config/server');
+const { port, isProduction } = require('./config/server');
 const app = express();
 
 mongoose.connect(dbConfig.path);
