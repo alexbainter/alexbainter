@@ -13,11 +13,11 @@ mongoose.Promise = global.Promise;
 
 app.use(express.static(path.resolve(__dirname, clientDir)));
 
-app.get('/', (req, res) => {
+app.use('/api', api);
+
+app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, defaultHTML));
 });
-
-app.use('/api', api);
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}...`);
