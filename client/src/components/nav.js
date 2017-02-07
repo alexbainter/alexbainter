@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import '../styles/_nav.scss';
 
 export default class Nav extends Component {
     render() {
@@ -16,9 +17,6 @@ export default class Nav extends Component {
                 </Link>
                 <Link to="/about" className="nav__link">
                     about
-                </Link>
-                <Link to="/contact" className="nav__link">
-                    contact
                 </Link>
             </div>
         );

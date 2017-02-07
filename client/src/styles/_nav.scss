@@ -1,0 +1,17 @@
+.nav {
+    margin: 20px auto;
+    text-align: center;
+
+    &__header {
+        font-size: 2em;
+    }
+
+    &__link {
+        font-size: 1.5em;
+        margin: 0.5em;
+
+        &:hover {
+            background: #eee;
+        }
+    }
+}
