@@ -1,17 +1,16 @@
 .nav {
     margin: 20px auto;
     text-align: center;
+    font-family: 'Raleway', sans-serif;
 
     &__header {
         font-size: 2em;
+        display: block;
     }
 
     &__link {
+        display: inline-block;
         font-size: 1.5em;
-        margin: 0.5em;
-
-        &:hover {
-            background: #eee;
-        }
+        padding: 0.5em;
     }
 }

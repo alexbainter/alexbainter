@@ -6,9 +6,9 @@ export default class Nav extends Component {
     render() {
         return (
             <div className="nav">
-                <div className="nav__header">
+                <Link to="/" className="nav__header">
                     alexbainter
-                </div>
+                </Link>
                 <Link to="/skills" className="nav__link">
                     skills
                 </Link>
