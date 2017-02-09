@@ -6,11 +6,19 @@
     &__header {
         font-size: 2em;
         display: block;
+
+        &--active {
+         text-decoration: underline;
+        }
     }
 
     &__link {
         display: inline-block;
         font-size: 1.5em;
         padding: 0.5em;
+
+        &--active {
+            text-decoration: underline;
+        }
     }
 }
