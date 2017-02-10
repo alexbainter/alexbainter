@@ -1,57 +1,47 @@
 import React, { Component } from 'react';
+import CodeSnippets from './fake-code-snippets';
 import '../styles/_home.scss';
+
+const TYPING_CHAR_PER_MS = 40;
+
+const WhiteSpaceChars = ['\t', '\r', '\n'];
 
 export default class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = { code: '' };
-        this.typeCode(testCode);
+        this.state = { code: '', typing: false, textSelected: false };
     }
     render() {
         return (
             <div>
-                <pre><code>{this.state.code}</code></pre>
+                <pre><code className={"fake-code" + (this.state.typing ? '' : ' fake-code--idle') + (this.state.textSelected ? ' fake-code--selected' : '')}>{this.state.code}</code></pre>
             </div>
         );
     }
 
-    typeCode(text) {
+    componentDidMount() {
+        this.typeCode(0);
+    }
+
+    typeCode(snippetsIndex) {
+        this.setState({ code: '', typing: true, textSelected: false });
+        const highlightedElements = document.getElementsByClassName('fake-code');
+        const text = CodeSnippets[snippetsIndex];
         let textIndex = 0;
         let typeInterval = setInterval(() => {
             if (textIndex < text.length) {
                 this.setState({code: this.state.code += text[textIndex++]});
             } else {
                 clearInterval(typeInterval);
+                this.setState({ typing: false });
+                let nextIndex = (snippetsIndex >= CodeSnippets.length - 1) ? 0 : ++snippetsIndex
+                setTimeout(() => {
+                    this.setState({textSelected: true});
+                    setTimeout(() => {
+                        this.typeCode(nextIndex);
+                    }, 500);
+                }, 2000);
             }
-        }, 40);
+        }, TYPING_CHAR_PER_MS);
     }
 }
-
-const testCode = `import React, { Component } from 'react';
-import '../styles/_home.scss';
-
-export default class Home extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { code: '' };
-        const testCode = 'Beep boop';
-        this.typeCode(testCode);
-    }
-    render() {
-        return (
-            <div className="code">{this.state.code}</div>
-        );
-    }
-
-    typeCode(text) {
-        let textIndex = 0;
-        let typeInterval = setInterval(() => {
-            if (textIndex < text.length) {
-                this.setState({code: this.state.code += text[textIndex++]});
-            } else {
-                clearInterval(typeInterval);
-            }
-        }, 85);
-    }
-}`
