@@ -1,4 +1,4 @@
-$fake-code-color: black;
+$fakeCodeColor: black;
 
 .fake-code {
     font-family: 'Roboto Mono', monospace;
@@ -8,7 +8,7 @@ $fake-code-color: black;
     font-size: 0.75em;
 
     &--selected {
-        background: $fake-code-color;
+        background: $fakeCodeColor;
         color: white;
 
         &::after {
@@ -29,7 +29,7 @@ $fake-code-color: black;
         vertical-align: middle;
         height: 1em;
         width: 2px;
-        background: $fake-code-color;
+        background: $fakeCodeColor;
         transform: translateY(-5%);
     }
 }
@@ -43,6 +43,6 @@ $fake-code-color: black;
     background: transparent;
   }
   50% {
-    background: $fake-code-color;
+    background: $fakeCodeColor;
   }
 }
