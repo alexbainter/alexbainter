@@ -4,8 +4,6 @@ import '../styles/_home.scss';
 
 const TYPING_CHAR_PER_MS = 40;
 
-const WhiteSpaceChars = ['\t', '\r', '\n'];
-
 export default class Home extends Component {
     constructor(props) {
         super(props);
@@ -14,7 +12,7 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <pre><code className={"fake-code" + (this.state.typing ? '' : ' fake-code--idle') + (this.state.textSelected ? ' fake-code--selected' : '')}>{this.state.code}</code></pre>
+                <pre className="tight-text"><code className={"fake-code" + (this.state.typing ? '' : ' fake-code--idle') + (this.state.textSelected ? ' fake-code--selected' : '')}>{this.state.code}</code></pre>
             </div>
         );
     }
@@ -25,7 +23,6 @@ export default class Home extends Component {
 
     typeCode(snippetsIndex) {
         this.setState({ code: '', typing: true, textSelected: false });
-        const highlightedElements = document.getElementsByClassName('fake-code');
         const text = CodeSnippets[snippetsIndex];
         let textIndex = 0;
         let typeInterval = setInterval(() => {

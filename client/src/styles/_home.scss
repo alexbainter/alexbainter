@@ -34,6 +34,10 @@ $fake-code-color: black;
     }
 }
 
+.tight-text {
+    line-height: 1;
+}
+
 @keyframes blink {
   from, to {
     background: transparent;
