@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import ReactTimeout from 'react-timeout';
 import CodeSnippets from './fake-code-snippets';
 import '../styles/_home.scss';
 
 const TYPING_CHAR_PER_MS = 40;
+const KEYSTROKE_REGEX = /\s+|\S{1}/g;
 
-export default class Home extends Component {
+class Home extends Component {
     constructor(props) {
         super(props);
         this.state = { code: '', typing: false, textSelected: false };
@@ -22,19 +24,19 @@ export default class Home extends Component {
     }
 
     typeCode(snippetsIndex) {
+        let chunks = getKeystrokedChunks(CodeSnippets[snippetsIndex])
         this.setState({ code: '', typing: true, textSelected: false });
-        const text = CodeSnippets[snippetsIndex];
-        let textIndex = 0;
-        let typeInterval = setInterval(() => {
-            if (textIndex < text.length) {
-                this.setState({code: this.state.code += text[textIndex++]});
+        let i = 0;
+        let typeInterval = this.props.setInterval(() => {
+            if (i < chunks.length) {
+                this.setState({code: this.state.code += chunks[i++]});
             } else {
                 clearInterval(typeInterval);
                 this.setState({ typing: false });
                 let nextIndex = (snippetsIndex >= CodeSnippets.length - 1) ? 0 : ++snippetsIndex
-                setTimeout(() => {
+                this.props.setTimeout(() => {
                     this.setState({textSelected: true});
-                    setTimeout(() => {
+                    this.props.setTimeout(() => {
                         this.typeCode(nextIndex);
                     }, 500);
                 }, 2000);
@@ -42,3 +44,17 @@ export default class Home extends Component {
         }, TYPING_CHAR_PER_MS);
     }
 }
+
+function getKeystrokedChunks(text) {
+    let chunks = [];
+    let match;
+    do {
+        match = KEYSTROKE_REGEX.exec(text);
+        if (match) {
+            chunks.push(match[0]);
+        }
+    } while (match);
+    return chunks;
+}
+
+export default ReactTimeout(Home);
