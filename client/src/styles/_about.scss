@@ -1,0 +1,8 @@
+.link-container {
+    list-style-type: none;
+    text-align: center;
+    &__link {
+        display: inline-block;
+        margin: 0 1em;
+    }
+}

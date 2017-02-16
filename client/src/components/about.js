@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/_about.scss';
 
 export default () => {
     return (
@@ -7,6 +8,14 @@ export default () => {
             <br />
             <br />
             If you'd like to contact me, you can do so at <a href="mailto:alex@alexbainter.com?Subject=Hello!">alex@alexbainter.com</a>.
+            <br />
+            <br />
+            You can also find me at these other places:
+            <ul className="link-container">
+                <li className="link-container__link"><a href="https://www.linkedin.com/in/alexbainter/"><i className="fa fa-linkedin" /></a></li>
+                <li className="link-container__link"><a href="https://github.com/metalex9"><i className="fa fa-github" /></a></li>
+                <li className="link-container__link"><a href="http://stackoverflow.com/users/1762237/metalex9?tab=profile"><i className="fa fa-stack-overflow" /></a></li>
+            </ul>
         </div>
     );
 }
