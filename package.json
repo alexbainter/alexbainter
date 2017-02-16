@@ -20,6 +20,7 @@
   "dependencies": {
     "body-parser": "^1.16.0",
     "express": "^4.14.1",
+    "font-awesome": "^4.7.0",
     "method-override": "^2.3.7",
     "mongoose": "^4.7.9",
     "normalize.css": "^5.0.0",
@@ -43,6 +44,7 @@
     "postcss-loader": "^1.2.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^2.2.0"
   }
 }

@@ -32,6 +32,10 @@ module.exports = {
                     fallback: 'style-loader',
                     use: 'css-loader!postcss-loader'
                 })
+            },
+            {
+                test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+                use: 'url-loader'
             }
         ]
     },
