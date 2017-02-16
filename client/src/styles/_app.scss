@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|EB+Garamond|Roboto+Mono');
+
 .content {
     margin: auto;
     font-family: 'EB Garamond', serif;
     font-size: 1.5em;
     max-width: 40em;
     width: 75%;
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+
+    &:hover {
+        color: #999;
+    }
 }
