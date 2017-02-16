@@ -1,0 +1,10 @@
+.skill-search {
+    width: 100%;
+    border-width: 0 0 1px 0;
+    border-color: #bbb;
+    font-weight: bold;
+
+    &:focus {
+        outline: none;
+    }
+}
