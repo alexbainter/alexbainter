@@ -6,6 +6,7 @@
     &__header {
         font-size: 2em;
         display: block;
+        color: inherit;
 
         &--active {
          text-decoration: underline;
@@ -16,6 +17,7 @@
         display: inline-block;
         font-size: 1.5em;
         padding: 0.5em;
+        color: inherit;
 
         &--active {
             text-decoration: underline;
