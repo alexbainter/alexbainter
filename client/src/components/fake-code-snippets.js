@@ -26,7 +26,7 @@ export default class App extends Component {
         );
     }
 };`,
-`$fake-code-color: black;
+`$fakeCodeColor: black;
 
 .fake-code {
     font-family: 'Roboto Mono', monospace;
@@ -36,7 +36,7 @@ export default class App extends Component {
     font-size: 0.75em;
 
     &--selected {
-        background: $fake-code-color;
+        background: $fakeCodeColor;
         color: white;
 
         &::after {
@@ -57,21 +57,8 @@ export default class App extends Component {
         vertical-align: middle;
         height: 1em;
         width: 2px;
-        background: $fake-code-color;
+        background: $fakeCodeColor;
         transform: translateY(-5%);
     }
-}
-
-.tight-text {
-    line-height: 1;
-}
-
-@keyframes blink {
-  from, to {
-    background: transparent;
-  }
-  50% {
-    background: $fake-code-color;
-  }
 }`
 ];
