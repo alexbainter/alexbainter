@@ -20,7 +20,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.typeCode(0);
+        this.typeCode(getRandomIndex(CodeSnippets));
     }
 
     typeCode(snippetsIndex) {
@@ -32,17 +32,30 @@ class Home extends Component {
                 this.setState({code: this.state.code += chunks[i++]});
             } else {
                 clearInterval(typeInterval);
-                this.setState({ typing: false });
-                let nextIndex = (snippetsIndex >= CodeSnippets.length - 1) ? 0 : ++snippetsIndex
-                this.props.setTimeout(() => {
-                    this.setState({textSelected: true});
-                    this.props.setTimeout(() => {
-                        this.typeCode(nextIndex);
-                    }, 500);
-                }, 2000);
+                this.clearCodeAndReset(snippetsIndex);
             }
         }, TYPING_CHAR_PER_MS);
     }
+
+    clearCodeAndReset(previousIndex) {
+        this.setState({ typing: false });
+        let nextIndex = previousIndex;
+        if (CodeSnippets.length > 1) {
+            do {
+                nextIndex = getRandomIndex(CodeSnippets);
+            } while (nextIndex === previousIndex);
+        }
+        this.props.setTimeout(() => {
+            this.setState({textSelected: true});
+            this.props.setTimeout(() => {
+                this.typeCode(nextIndex);
+            }, 500);
+        }, 2000);
+    }
+}
+
+function getRandomIndex(array) {
+    return Math.floor(Math.random() * array.length);
 }
 
 function getKeystrokedChunks(text) {
