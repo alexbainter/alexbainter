@@ -8,3 +8,14 @@
         outline: none;
     }
 }
+
+.skills-list {
+    list-style-type: none;
+    padding-left: 0;
+
+    &__item {
+        &:hover {
+            background-color: #bbb;
+        }
+    }
+}
