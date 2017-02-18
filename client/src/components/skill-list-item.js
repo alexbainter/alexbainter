@@ -1,9 +1,9 @@
 import React from 'react';
 
 export default (props) => {
-    (
+    return (
         <li className="skill-list__item">
-            Hey there
+            {props.name}
         </li>
     );
 }
