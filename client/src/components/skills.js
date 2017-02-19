@@ -5,6 +5,11 @@ import SkillListItem from './skill-list-item';
 import '../styles/_skills.scss';
 
 class Skills extends Component {
+    constructor(props) {
+        super(props);
+        this.sortedSkills = this.props.skills
+    }
+
     render() {
         return (
             <div>
@@ -17,12 +22,17 @@ class Skills extends Component {
     }
 
     renderSkill(skill) {
-        return <SkillListItem {...skill} />
+        return <SkillListItem {...skill} key={skill._id} />
     }
 
     componentWillMount() {
-        this.props.fetchSkills();
-        this.props.fetchRatings();
+        if (!this.props.skills.length) {
+            this.props.fetchSkills();
+        }
+
+        if (!this.props.ratings.length) {
+            this.props.fetchRatings();
+        }
     }
 
     componentDidMount() {
@@ -31,7 +41,22 @@ class Skills extends Component {
 }
 
 function mapStateToProps({ skills, ratings }) {
-    return { skills, ratings };
+    return {
+        skills: sortSkills(skills),
+        ratings: ratings
+    };
+}
+
+function sortSkills(skills) {
+    return skills.sort((a, b) => {
+        if (a.rating.displayOrder > b.rating.displayOrder) {
+            return -1
+        } else if (a.rating.displayOrder < b.rating.displayOrder) {
+            return 1;
+        } else {
+            return (a.rating.name > b.rating.name) ? -1 : 1;
+        }
+    });
 }
 
 export default connect(mapStateToProps, { fetchSkills, fetchRatings })(Skills);
