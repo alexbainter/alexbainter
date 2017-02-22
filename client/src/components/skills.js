@@ -13,7 +13,12 @@ class Skills extends Component {
     render() {
         return (
             <div>
-                <input className="skill-search" type="text" placeholder="JavaScript, C#, git" ref={(input) => { this.searchInput = input; }}/>
+                <input
+                    className="skill-search"
+                    type="text"
+                    placeholder="JavaScript, C#, git"
+                    ref={(input) => { this.searchInput = input; }}
+                    />
                 <ul className="skills-list">
                     {this.props.skills.map(this.renderSkill)}
                 </ul>
