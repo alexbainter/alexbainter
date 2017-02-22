@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactTimeout from 'react-timeout';
-import CodeSnippets from './fake-code-snippets';
 import '../styles/_home.scss';
 
 const TYPING_CHAR_PER_MS = 40;
 const KEYSTROKE_REGEX = /\s+|\S{1}/g;
+const CodeSnippets = [];
 
 class Home extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.typeCode(getRandomIndex(CodeSnippets));
+        //this.typeCode(getRandomIndex(CodeSnippets));
     }
 
     typeCode(snippetsIndex) {
