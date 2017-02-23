@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ReactTimeout from 'react-timeout';
+import { fetchNewSnippet, changeSnippet } from '../actions';
 import '../styles/_home.scss';
 
 const TYPING_CHAR_PER_MS = 40;
 const KEYSTROKE_REGEX = /\s+|\S{1}/g;
-const CodeSnippets = [];
 
 class Home extends Component {
     constructor(props) {
@@ -19,12 +20,12 @@ class Home extends Component {
         );
     }
 
-    componentDidMount() {
-        //this.typeCode(getRandomIndex(CodeSnippets));
+    componentWillMount() {
+        this.props.fetchNewSnippet();
     }
 
-    typeCode(snippetsIndex) {
-        let chunks = getKeystrokedChunks(CodeSnippets[snippetsIndex])
+    typeCode() {
+        let chunks = getKeystrokedChunks(this.props.currentSnippet.code);
         this.setState({ code: '', typing: true, textSelected: false });
         let i = 0;
         let typeInterval = this.props.setInterval(() => {
@@ -35,20 +36,15 @@ class Home extends Component {
                 this.clearCodeAndReset(snippetsIndex);
             }
         }, TYPING_CHAR_PER_MS);
+        this.props.fetchNewSnippet(this.props.currentSnippet._id);
     }
 
     clearCodeAndReset(previousIndex) {
         this.setState({ typing: false });
-        let nextIndex = previousIndex;
-        if (CodeSnippets.length > 1) {
-            do {
-                nextIndex = getRandomIndex(CodeSnippets);
-            } while (nextIndex === previousIndex);
-        }
         this.props.setTimeout(() => {
             this.setState({textSelected: true});
             this.props.setTimeout(() => {
-                this.typeCode(nextIndex);
+                this.props.changeSnippet();
             }, 500);
         }, 2000);
     }
@@ -70,4 +66,11 @@ function getKeystrokedChunks(text) {
     return chunks;
 }
 
-export default ReactTimeout(Home);
+function mapStateToProps({ snippets }) {
+    return {
+        currentSnippet: snippets.currentSnippet,
+        nextSnippet: snippets.nextSnippet
+    }
+}
+
+export default connect(mapStateToProps, { fetchNewSnippet, changeSnippet })(ReactTimeout(Home));
