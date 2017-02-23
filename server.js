@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const path = require('path');
 const models = require('./models');
 const api = require('./api');
@@ -12,6 +13,8 @@ mongoose.connect(dbConfig.path);
 mongoose.Promise = global.Promise;
 
 app.use(express.static(path.resolve(__dirname, clientDir)));
+
+app.use(bodyParser.json());
 
 app.use('/api', api);
 

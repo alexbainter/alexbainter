@@ -20,18 +20,27 @@ router.get('/skills', (req, res, next) => {
     });
 });
 
-router.get('/snippet', (req, res, next) => {
+router.post('/snippet', (req, res, next) => {
     Snippet.count().exec((err, count) => {
         if (err) {
             next(err);
         }
-        const randomIndex = Math.floor(Math.random() * count);
-        Snippet.findOne().skip(randomIndex).exec((err, snippet) => {
-            if (err) {
-                next(err);
-            }
-            res.json(snippet)
-        });
+        if (count === 1) {
+            return Snippet.findOne().exec((err, snippet) => {
+                if (err) {
+                    next(err);
+                }
+                res.json(snippet);
+            });
+        } else {
+            const randomIndex = Math.floor(Math.random() * (count - 1));
+            Snippet.findOne().where('_id').ne(req.body.currentSnippetId).skip(randomIndex).exec((err, snippet) => {
+                if (err) {
+                    next(err);
+                }
+                res.json(snippet)
+            });
+        }
     });
 })
 
