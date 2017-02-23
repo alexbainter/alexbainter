@@ -23,7 +23,7 @@ router.post('/snippet', (req, res, next) => {
             next(err);
         }
         if (count === 1) {
-            return Snippet.findOne().exec(handleQueryResult.bind(null, res, next));
+            Snippet.findOne().exec(handleQueryResult.bind(null, res, next));
         } else {
             const randomIndex = Math.floor(Math.random() * (count - 1));
             Snippet.findOne().where('_id').ne(req.body.currentSnippetId).skip(randomIndex).exec(handleQueryResult.bind(null, res, next));
