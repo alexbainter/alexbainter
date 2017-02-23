@@ -2,22 +2,19 @@ const express = require('express');
 const router = express.Router();
 const { Rating, Skill, Snippet } = require('./models');
 
+function handleQueryResult(res, next, err, result) {
+    if (err) {
+        next(err);
+    }
+    res.json(result);
+}
+
 router.get('/ratings', (req, res, next) => {
-    Rating.find((err, ratings) => {
-        if (err) {
-            next(err);
-        }
-        res.json(ratings);
-    });
+    Rating.find(handleQueryResult.bind(null, res, next));
 });
 
 router.get('/skills', (req, res, next) => {
-    Skill.find().populate('rating').exec((err, skills) => {
-        if (err) {
-            next(err);
-        }
-        res.json(skills);
-    });
+    Skill.find().populate('rating').exec(handleQueryResult.bind(null, res, next));
 });
 
 router.post('/snippet', (req, res, next) => {
@@ -26,20 +23,10 @@ router.post('/snippet', (req, res, next) => {
             next(err);
         }
         if (count === 1) {
-            return Snippet.findOne().exec((err, snippet) => {
-                if (err) {
-                    next(err);
-                }
-                res.json(snippet);
-            });
+            return Snippet.findOne().exec(handleQueryResult.bind(null, res, next));
         } else {
             const randomIndex = Math.floor(Math.random() * (count - 1));
-            Snippet.findOne().where('_id').ne(req.body.currentSnippetId).skip(randomIndex).exec((err, snippet) => {
-                if (err) {
-                    next(err);
-                }
-                res.json(snippet)
-            });
+            Snippet.findOne().where('_id').ne(req.body.currentSnippetId).skip(randomIndex).exec(handleQueryResult.bind(null, res, next));
         }
     });
 })
