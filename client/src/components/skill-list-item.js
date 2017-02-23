@@ -36,8 +36,10 @@ function ratingsSort(a, b) {
     }
 }
 
-function mapStateToProps({ ratings }) {
-    return { ratings };
+function mapStateToProps({ data }) {
+    return {
+        ratings: data.ratings
+    };
 }
 
 export default connect(mapStateToProps)(SkillListItem);

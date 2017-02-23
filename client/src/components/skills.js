@@ -45,10 +45,10 @@ class Skills extends Component {
     }
 }
 
-function mapStateToProps({ skills, ratings }) {
+function mapStateToProps({ data }) {
     return {
-        skills: sortSkills(skills),
-        ratings: ratings
+        skills: sortSkills(data.skills),
+        ratings: data.ratings
     };
 }
 

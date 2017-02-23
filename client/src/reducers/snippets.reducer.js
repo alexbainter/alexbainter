@@ -5,13 +5,13 @@ const INITIAL_STATE = {
     nextSnippet: null
 };
 
-export default function (state = INITAL_STATE, action) {
+export default function (state = INITIAL_STATE, action) {
     switch (action.type) {
         case FETCH_NEW_SNIPPET:
             return { ...state, nextSnippet: action.payload.data };
         case CHANGE_SNIPPET:
             return { ...state, currentSnippet: state.nextSnippet };
         default:
-            state;
+            return state;
     }
 }

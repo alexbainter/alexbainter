@@ -1,11 +1,11 @@
-import { FETCH_SKILLS, FETCH_RATINGS };
+import { FETCH_SKILLS, FETCH_RATINGS } from '../actions';
 
-const INITAL_STATE = {
+const INITIAL_STATE = {
     ratings: [],
     skills: []
 };
 
-export default function(state = INITAL_STATE, action) {
+export default function(state = INITIAL_STATE, action) {
     switch (action.type) {
         case FETCH_SKILLS:
             return { ...state, skills: action.payload.data };
