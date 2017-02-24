@@ -1,3 +1,5 @@
+@import "_variables.scss";
+
 $fakeCodeColor: black;
 
 .fake-code {
@@ -45,4 +47,18 @@ $fakeCodeColor: black;
   50% {
     background: $fakeCodeColor;
   }
+}
+
+@media screen and (max-width: $mobileMaxWidth) {
+    .fake-code {
+        font-size: 0.6rem;
+
+        &::after {
+            height: 1rem;
+        }
+    }
+
+    .tight-text {
+        line-height: 0.6rem;
+    }
 }

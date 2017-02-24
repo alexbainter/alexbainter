@@ -1,3 +1,5 @@
+@import "_variables.scss";
+
 .skill-search {
     width: 100%;
     border-width: 0 0 1px 0;
@@ -15,7 +17,7 @@
 
     &__item {
         padding: 1rem;
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
 
@@ -32,5 +34,19 @@
     margin: 0 0.1rem;
     &--filled {
         background: black;
+    }
+}
+
+@media screen and (max-width: $mobileMaxWidth) {
+    .skills-list {
+
+        &__item {
+            font-size: 1.5rem;
+        }
+    }
+
+    .circle {
+        height: 0.5rem;
+        width: 0.5rem;
     }
 }
