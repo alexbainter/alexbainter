@@ -6,7 +6,7 @@ const saveSnippets = require('./snippets');
 
 mongoose.connect(dbConfig.path);
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = Promise;
 
 Promise.all(saveRatings())
 .then(() => {
