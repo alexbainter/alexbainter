@@ -9,7 +9,7 @@ const { defaultHTML, clientDir } = require('./config/client');
 const { port, isProduction } = require('./config/server');
 const app = express();
 
-mongoose.connect(dbConfig.path);
+mongoose.connect(dbConfig.path, { keepAlive: dbConfig.keepAliveMS });
 mongoose.Promise = global.Promise;
 
 app.use(express.static(path.resolve(__dirname, clientDir)));
