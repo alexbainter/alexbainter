@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTimeout from 'react-timeout';
+import axios from 'axios';
 import { fetchNewSnippet, changeSnippet } from '../actions';
 import '../styles/_home.scss';
 
@@ -10,7 +11,13 @@ const KEYSTROKE_REGEX = /\s+|\S{1}/g;
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = { code: '', typing: false, textSelected: false };
+        this.state = {
+            code: '',
+            typing: false,
+            textSelected: false,
+            currentSnippet: null,
+            nextSnippet: null
+        };
     }
     render() {
         return (
@@ -20,12 +27,15 @@ class Home extends Component {
         );
     }
 
-    componentWillMount() {
-        this.props.fetchNewSnippet();
+    componentDidMount() {
+        this.fetchNewSnippet().then(() => {
+            this.cycleSnippets();
+            this.typeCode();
+        });
     }
 
     typeCode() {
-        let chunks = getKeystrokedChunks(this.props.currentSnippet.code);
+        let chunks = getKeystrokedChunks(this.state.currentSnippet.code);
         this.setState({ code: '', typing: true, textSelected: false });
         let i = 0;
         let typeInterval = this.props.setInterval(() => {
@@ -33,20 +43,34 @@ class Home extends Component {
                 this.setState({code: this.state.code += chunks[i++]});
             } else {
                 clearInterval(typeInterval);
-                this.clearCodeAndReset(snippetsIndex);
+                this.clearCodeAndReset();
             }
         }, TYPING_CHAR_PER_MS);
-        this.props.fetchNewSnippet(this.props.currentSnippet._id);
     }
 
-    clearCodeAndReset(previousIndex) {
+    clearCodeAndReset() {
         this.setState({ typing: false });
         this.props.setTimeout(() => {
             this.setState({textSelected: true});
             this.props.setTimeout(() => {
-                this.props.changeSnippet();
+                this.cycleSnippets();
+                this.typeCode();
             }, 500);
         }, 2000);
+    }
+
+    fetchNewSnippet() {
+        const currentSnippetId = this.state.currentSnippet ? this.state.currentSnippet._id : '';
+        return axios.get(`/api/snippet/${currentSnippetId}`).then((res) => {
+            this.setState({ nextSnippet: res.data });
+        });
+    }
+
+    cycleSnippets() {
+        if (!this.state.typing) {
+            this.setState({ currentSnippet: this.state.nextSnippet });
+            this.fetchNewSnippet();
+        }
     }
 }
 
@@ -66,11 +90,4 @@ function getKeystrokedChunks(text) {
     return chunks;
 }
 
-function mapStateToProps({ snippets }) {
-    return {
-        currentSnippet: snippets.currentSnippet,
-        nextSnippet: snippets.nextSnippet
-    }
-}
-
-export default connect(mapStateToProps, { fetchNewSnippet, changeSnippet })(ReactTimeout(Home));
+export default (ReactTimeout(Home));
