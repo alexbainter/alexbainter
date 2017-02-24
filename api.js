@@ -17,7 +17,7 @@ router.get('/skills', (req, res, next) => {
     Skill.find().populate('rating').exec(handleQueryResult.bind(null, res, next));
 });
 
-router.post('/snippet', (req, res, next) => {
+router.get('/snippet/:currentSnippetId?', (req, res, next) => {
     Snippet.count().exec((err, count) => {
         if (err) {
             next(err);
@@ -25,8 +25,14 @@ router.post('/snippet', (req, res, next) => {
         if (count === 1) {
             Snippet.findOne().exec(handleQueryResult.bind(null, res, next));
         } else {
-            const randomIndex = Math.floor(Math.random() * (count - 1));
-            Snippet.findOne().where('_id').ne(req.body.currentSnippetId).skip(randomIndex).exec(handleQueryResult.bind(null, res, next));
+            var query = Snippet.findOne();
+            const { currentSnippetId } = req.params;
+            if (currentSnippetId) {
+                count--;
+                query = query.where('_id').ne(currentSnippetId)
+            }
+            const randomIndex = Math.floor(Math.random() * count);
+            query.skip(randomIndex).exec(handleQueryResult.bind(null, res, next));
         }
     });
 })
