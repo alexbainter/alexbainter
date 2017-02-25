@@ -13,6 +13,9 @@ class SkillListItem extends Component {
                 {this.props.name}
                 <div className="circle-container">
                     {this.props.ratings.map(this.renderCircle)}
+                    <div className="circle-container__tip">
+                        {this.props.rating.description}
+                    </div>
                 </div>
             </li>
         );

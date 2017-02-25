@@ -21,12 +21,15 @@ class Skills extends Component {
                     value={this.state.skillsInput}
                     onChange={(event) => this.onInputChange(event.target.value)}
                 />
-                <i>What do these ratings mean?</i>
                 <ul className="skills-list">
                     {this.state.visibleSkills.map(this.renderSkill)}
                 </ul>
             </div>
         );
+    }
+
+    renderSkill(skill) {
+        return <SkillListItem {...skill} key={skill._id} />
     }
 
     componentDidUpdate(prevProps) {
@@ -51,13 +54,11 @@ class Skills extends Component {
         this.setState({ visibleSkills: matchingSkills, skillsInput: searchTerms });
     }
 
-    renderSkill(skill) {
-        return <SkillListItem {...skill} key={skill._id} />
-    }
-
     componentWillMount() {
         if (!this.props.skills.length) {
             this.props.fetchSkills();
+        } else {
+            this.setState({ visibleSkills: this.props.skills });
         }
 
         if (!this.props.ratings.length) {
