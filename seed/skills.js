@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const Skill = require('../models/Skill');
 const Rating = require('../models/Rating');
 
@@ -42,10 +41,6 @@ const data = [
     {
         name: 'Knockout',
         rating: 'Expert'
-    },
-    {
-        name: 'git',
-        rating: 'Proficient'
     },
     {
         name: 'C++',

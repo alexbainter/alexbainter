@@ -4,6 +4,7 @@ const saveRatings = require('./ratings');
 const saveSkills = require('./skills');
 const saveSnippets = require('./snippets');
 const savePositions = require('./positions');
+const saveProjects = require('./projects');
 
 mongoose.connect(dbConfig.path);
 
@@ -15,6 +16,9 @@ Promise.all(saveRatings())
 })
 .then(() => {
     return Promise.all(savePositions());
+})
+.then(() => {
+    return Promise.all(saveProjects());
 })
 .then(() => {
     return Promise.all(saveSnippets());

@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const Skill = require('../models/Skill');
 const Position = require('../models/Position');
 
@@ -17,7 +16,6 @@ const data = [
             'SQL',
             'Visual Basic',
             'Knockout',
-            'git',
             'gulp',
             'ASP.NET',
             'jQuery',
@@ -41,7 +39,6 @@ const data = [
             'SQL',
             'Visual Basic',
             'Knockout',
-            'git',
             'ASP.NET',
             'jQuery',
             'Design',
