@@ -7,7 +7,7 @@ import '../styles/_skills.scss';
 class Skills extends Component {
     constructor(props) {
         super(props);
-        this.sortedSkills = this.props.skills
+        this.state = { skillsInput: '', visibleSkills: []}
     }
 
     render() {
@@ -18,12 +18,37 @@ class Skills extends Component {
                     type="text"
                     placeholder="JavaScript, C#, git"
                     ref={(input) => { this.searchInput = input; }}
-                    />
+                    value={this.state.skillsInput}
+                    onChange={(event) => this.onInputChange(event.target.value)}
+                />
+                <i>What do these ratings mean?</i>
                 <ul className="skills-list">
-                    {this.props.skills.map(this.renderSkill)}
+                    {this.state.visibleSkills.map(this.renderSkill)}
                 </ul>
             </div>
-        )
+        );
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.skills.length !== this.props.skills.length) {
+            this.setState({ visibleSkills: this.props.skills });
+        }
+    }
+
+    onInputChange(searchTerms) {
+        let matchingSkills;
+        if (searchTerms.length === 0) {
+            matchingSkills = this.props.skills;
+        } else {
+            const terms = searchTerms.split(/\s*,\s*/).map((term) => {
+                return term.toLowerCase();
+            });
+            matchingSkills = this.props.skills.filter((skill) => {
+                return terms.includes(skill.name.toLowerCase());
+            });
+        }
+
+        this.setState({ visibleSkills: matchingSkills, skillsInput: searchTerms });
     }
 
     renderSkill(skill) {
@@ -59,7 +84,7 @@ function sortSkills(skills) {
         } else if (a.rating.displayOrder < b.rating.displayOrder) {
             return 1;
         } else {
-            return (a.rating.name > b.rating.name) ? -1 : 1;
+            return (a.name > b.name) ? 1 : -1;
         }
     });
 }
