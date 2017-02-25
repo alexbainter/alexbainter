@@ -86,6 +86,14 @@ const data = [
     {
         name: 'Node',
         rating: 'Familiar'
+    },
+    {
+        name: 'Webpack',
+        rating: 'Familiar'
+    },
+    {
+        name: 'HTML5',
+        rating: 'Proficient'
     }
 ];
 
@@ -100,7 +108,7 @@ module.exports = Array.prototype.map.bind(data, skillData => {
             rating: rating
         }).save(err => {
             if (err) {
-                console.log(`"${skillData.name}" Skill Errotttr: ${insideErr}`);
+                console.log(`"${skillData.name}" Skill Error: ${err}`);
             }
         });
     });
