@@ -64,10 +64,6 @@ const data = [
         rating: 'Proficient'
     },
     {
-        name: 'ES6',
-        rating: 'Expert'
-    },
-    {
         name: 'R',
         rating: 'Familiar'
     },
