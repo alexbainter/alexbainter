@@ -1,9 +1,9 @@
-@import "_variables.scss";
+@import '_variables.scss';
 
 $fakeCodeColor: black;
 
 .fake-code {
-    font-family: 'Roboto Mono', monospace;
+    font-family: $monospaceFontFamilyName, monospace;
     white-space: pre-wrap;
     display: inline;
     tab-size: 4;

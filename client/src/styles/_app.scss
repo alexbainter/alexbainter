@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway|EB+Garamond|Roboto+Mono');
+@import '_variables.scss';
 
 .content {
     margin: auto;
-    font-family: 'EB Garamond', serif;
+    font-family: $serifFontFamilyName, serif;
     font-size: 1.5em;
     max-width: 50rem;
     width: 75%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $sansSerifFontFamilyName;
+    font-weight: normal;
 }
 
 a {
@@ -14,5 +20,17 @@ a {
 
     &:hover {
         color: #999;
+    }
+}
+
+hr {
+    border-style: solid;
+    color: black;
+    border-width: 1px 0 0 0;
+}
+
+@media screen and (max-width: $mobileMaxWidth) {
+    .content {
+        width: 90%;
     }
 }

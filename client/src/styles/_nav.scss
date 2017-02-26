@@ -1,12 +1,14 @@
+@import '_variables.scss';
+
 .nav {
     margin: 20px auto;
     text-align: center;
-    font-family: 'Raleway', sans-serif;
+    font-family: $sansSerifFontFamilyName, sans-serif;
 
     &__header {
         font-size: 2rem;
         display: block;
-        color: inherit;
+        color: black;
 
         &--active {
              text-decoration: underline;
@@ -17,7 +19,7 @@
         display: inline-block;
         font-size: 1.5rem;
         padding: 0.5rem;
-        color: inherit;
+        color: black;
 
         &--active {
             text-decoration: underline;
