@@ -15,5 +15,6 @@ You will need to install the following before you can run the site locally:
 1. Clone the repository or download the source code.
 1. Navigate to directory where you cloned/downloaded the repository.
 1. Run `npm install` from a command prompt.
+1. (Optional) Run `npm run seed` from a command prompt to seed the database.
 1. Run `npm start` from a command prompt. You should see some output from node and webpack.
 1. Navigate to http://localhost:3000 to view the site.
