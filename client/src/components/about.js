@@ -7,7 +7,7 @@ export default () => {
             Hey! My name's Alex. I'm a software developer. Everyone knows software developers need their own websites, and this one is mine.
             <br />
             <br />
-            If you'd like to contact me, you can do so at <a href="mailto:alex@alexbainter.com?Subject=Hello!">alex@alexbainter.com</a>.
+            If you'd like to contact me, you can do so at <a href="mailto:alexbainter@gmail.com?Subject=Hello!">alexbainter@gmail.com</a>.
             <br />
             <br />
             You can also find me at these other places:
