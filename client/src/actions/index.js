@@ -13,6 +13,14 @@ export function fetchRatings() {
     return baseAPIFetch(FETCH_RATINGS, 'ratings');
 }
 
+export function fetchProjects() {
+    return baseAPIFetch(FETCH_PROJECTS, 'projects');
+}
+
+export function fetchPositions() {
+    return baseAPIFetch(FETCH_POSITIONS, 'positions');
+}
+
 function baseAPIFetch(actionType, apiRoute) {
     const request = axios.get(`/api/${apiRoute}`);
     return {
