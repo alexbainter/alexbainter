@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { fetchSkills, fetchRatings } from '../actions';
 import SkillListItem from './skill-list-item';
 import '../styles/_skills.scss';
@@ -10,6 +11,18 @@ class Skills extends Component {
         this.state = { skillsInput: '', visibleSkills: []}
     }
 
+    componentWillMount() {
+        if (!this.props.skills.length) {
+            this.props.fetchSkills();
+        } else {
+            this.setState({ visibleSkills: this.props.skills });
+        }
+
+        if (!this.props.ratings.length) {
+            this.props.fetchRatings();
+        }
+    }
+
     render() {
         return (
             <div>
@@ -17,12 +30,12 @@ class Skills extends Component {
                     className="skill-search"
                     type="text"
                     placeholder="JavaScript, C#, git"
-                    ref={(input) => { this.searchInput = input; }}
                     value={this.state.skillsInput}
                     onChange={(event) => this.onInputChange(event.target.value)}
                 />
                 <ul className="skills-list">
                     {this.state.visibleSkills.map(this.renderSkill)}
+                    {this.state.visibleSkills.length ? '' : 'No results...'}
                 </ul>
             </div>
         );
@@ -53,22 +66,6 @@ class Skills extends Component {
 
         this.setState({ visibleSkills: matchingSkills, skillsInput: searchTerms });
     }
-
-    componentWillMount() {
-        if (!this.props.skills.length) {
-            this.props.fetchSkills();
-        } else {
-            this.setState({ visibleSkills: this.props.skills });
-        }
-
-        if (!this.props.ratings.length) {
-            this.props.fetchRatings();
-        }
-    }
-
-    componentDidMount() {
-        this.searchInput.focus();
-    }
 }
 
 function mapStateToProps({ data }) {
@@ -79,15 +76,7 @@ function mapStateToProps({ data }) {
 }
 
 function sortSkills(skills) {
-    return skills.sort((a, b) => {
-        if (a.rating.displayOrder > b.rating.displayOrder) {
-            return -1
-        } else if (a.rating.displayOrder < b.rating.displayOrder) {
-            return 1;
-        } else {
-            return (a.name > b.name) ? 1 : -1;
-        }
-    });
+    return _.sortBy(skills, [(skill) => { return -skill.rating.displayOrder}, 'name']);
 }
 
 export default connect(mapStateToProps, { fetchSkills, fetchRatings })(Skills);
