@@ -6,7 +6,7 @@ const data = [
         name: 'Software Engineer, Frontend Chapter Lead',
         company: 'Spreetail',
         linkURL: 'http://spreetail.com/',
-        description: 'I develop internal tools to support the Business Development department. This means working with product owners and users to identify problems and implement solutions which both improve day-to-day operations and support new processes. I work throughout the full stack of our web apps. As the Frontend Chapter Lead, I drive process improvements, standards, research, and personal development among developers with an expressed interest in frontend technologies.',
+        description: 'I develop internal tools to support the Business Development department. I work with product owners and users to identify problems and develop solutions which both improve day-to-day operations and support new processes. I work throughout the full stack of our web apps. As the Frontend Chapter Lead, I drive process improvements, standards, research, training, and personal development among developers with an expressed interest in frontend technologies.',
         startDate: new Date(2016, 4, 1),
         endDate: null,
         skills: [
