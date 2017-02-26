@@ -1,8 +1,10 @@
-import { FETCH_SKILLS, FETCH_RATINGS } from '../actions';
+import { FETCH_SKILLS, FETCH_RATINGS, FETCH_POSITIONS, FETCH_PROJECTS } from '../actions';
 
 const INITIAL_STATE = {
     ratings: [],
-    skills: []
+    skills: [],
+    positions: [],
+    projects: []
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -11,6 +13,10 @@ export default function(state = INITIAL_STATE, action) {
             return { ...state, skills: action.payload.data };
         case FETCH_RATINGS:
             return { ...state, ratings: action.payload.data };
+        case FETCH_PROJECTS:
+            return { ...state, projects: action.payload.data };
+        case FETCH_POSITIONS:
+            return { ...state, positions: action.payload.data };
         default:
             return state;
     }
