@@ -31,14 +31,6 @@ class SkillListItem extends Component {
     }
 }
 
-function ratingsSort(a, b) {
-    if (a.displayOrder < b.displayOrder) {
-        return -1;
-    } else {
-        return 1;
-    }
-}
-
 function mapStateToProps({ data }) {
     return {
         ratings: data.ratings
