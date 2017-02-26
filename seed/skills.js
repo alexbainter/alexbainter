@@ -72,7 +72,7 @@ const data = [
     },
     {
         name: 'Design',
-        rating: 'Familiar'
+        rating: 'Proficient'
     },
     {
         name: 'Mongo',
