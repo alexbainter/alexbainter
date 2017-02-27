@@ -1,0 +1,97 @@
+@import '_variables.scss';
+
+.skill-search {
+    width: 100%;
+    border-width: 0 0 1px 0;
+    border-color: black;
+    font-size: 2rem;
+    font-family: $sansSerifFontFamilyName;
+
+    &::placeholder {
+        color: $lightGrey;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.skills-list {
+    list-style-type: none;
+    padding-left: 0;
+
+    &__item {
+        padding: 1rem;
+        font-size: 2rem;
+        position: relative;
+        font-family: $sansSerifFontFamilyName;
+    }
+}
+
+.circle-container {
+    float: right;
+
+    &:hover &__tip{
+        display: block;
+    }
+
+    &__tip {
+        display: none;
+        z-index: 2;
+        font-size: 1.25rem;
+        position: absolute;
+        right: 8.75rem;
+        top: 0;
+        margin-top: 1.7rem;
+        padding: 5px 10px;
+        border-radius: 3px;
+        background: black;
+        color: white;
+        font-family: $serifFontFamilyName;
+
+        &::after {
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-left-color: black;
+            right: -11px;
+            top: 1px;
+        }
+    }
+}
+
+.circle {
+    display: inline-block;
+    border: 2px solid black;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    margin: 0 0.1rem;
+    &--filled {
+        background: black;
+    }
+}
+
+@media screen and (max-width: $mobileMaxWidth) {
+    .skills-list {
+
+        &__item {
+            font-size: 1.5rem;
+        }
+    }
+
+    .circle-container {
+
+        &__tip {
+            margin-top: 1.5rem;
+            right: 6.5rem;
+        }
+    }
+
+    .circle {
+        height: 0.5rem;
+        width: 0.5rem;
+    }
+}
