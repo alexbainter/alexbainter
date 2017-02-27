@@ -6,6 +6,8 @@ import { fetchNewSnippet, changeSnippet } from '../actions';
 import '../styles/_home.scss';
 
 const TYPING_CHAR_PER_MS = 40;
+const TYPING_IDLE_TIME_MS = 2000;
+const TYPING_SELECTED_TIME_MS = 500;
 const KEYSTROKE_REGEX = /\s+|\S{1}/g;
 
 class Home extends Component {
@@ -51,12 +53,12 @@ class Home extends Component {
     clearCodeAndReset() {
         this.setState({ typing: false });
         this.props.setTimeout(() => {
-            this.setState({textSelected: true});
+            this.setState({ textSelected: true });
             this.props.setTimeout(() => {
                 this.cycleSnippets();
                 this.typeCode();
-            }, 500);
-        }, 2000);
+            }, TYPING_SELECTED_TIME_MS);
+        }, TYPING_IDLE_TIME_MS);
     }
 
     fetchNewSnippet() {
