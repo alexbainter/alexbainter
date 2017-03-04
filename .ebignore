@@ -44,9 +44,6 @@ jspm_packages
 
 !.elasticbeanstalk/*.global.yml
 
-# Source files
-client/src
-
 # git files
 .gitignore
 .git
