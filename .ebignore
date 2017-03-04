@@ -54,7 +54,6 @@ client/src
 # Dev files
 .babelrc
 .ebignore
-package.json
 postcss.config.js
 README.md
 webpack.config.js
