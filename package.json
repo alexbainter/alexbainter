@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "seed": "node seed/seed.js",
-    "start": "concurrently \"webpack --watch\" \"node server\""
+    "start": "concurrently \"webpack --watch\" \"node server\"",
+    "prod": "webpack -p && node server"
   },
   "repository": {
     "type": "git",
