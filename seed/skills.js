@@ -84,11 +84,18 @@ const data = [
     },
     {
         name: 'Webpack',
-        rating: 'Familiar'
+        rating: 'Proficient'
     },
     {
         name: 'HTML5',
         rating: 'Proficient'
+    },
+    {
+        name: 'Less',
+        rating: 'Familiar'
+    }, {
+        name: 'Pug',
+        rating: 'Familiar'
     }
 ];
 
