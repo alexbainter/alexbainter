@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
+const compression = require('compression');
 const models = require('./models');
 const api = require('./api');
 const dbConfig = require('./config/db');
@@ -11,6 +12,8 @@ const app = express();
 
 mongoose.connect(dbConfig.path, { keepAlive: dbConfig.keepAliveMS });
 mongoose.Promise = global.Promise;
+
+app.use(compression());
 
 app.use(express.static(path.resolve(__dirname, clientDir)));
 

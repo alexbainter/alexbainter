@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "body-parser": "^1.16.0",
+    "compression": "^1.6.2",
     "dateformat": "^2.0.0",
     "express": "^4.14.1",
     "font-awesome": "^4.7.0",
