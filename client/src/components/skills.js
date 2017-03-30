@@ -57,10 +57,12 @@ class Skills extends Component {
             matchingSkills = this.props.skills;
         } else {
             const terms = searchTerms.split(/\s*,\s*/).map((term) => {
-                return term.toLowerCase();
+                return term.toUpperCase();
             });
             matchingSkills = this.props.skills.filter((skill) => {
-                return terms.includes(skill.name.toLowerCase());
+                return terms.some((term) => {
+                    return term.trim() && skill.name.toUpperCase().includes(term);
+                });
             });
         }
 
