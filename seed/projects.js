@@ -18,7 +18,8 @@ const data = [
             'Mongo',
             'Node',
             'Webpack',
-            'HTML5'
+            'HTML5',
+            'Express'
         ]
     },
     {
@@ -36,7 +37,8 @@ const data = [
             'Webpack',
             'HTML5',
             'Pug',
-            'jQuery'
+            'jQuery',
+            'Express'
         ]
     }
 ];
