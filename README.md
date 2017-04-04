@@ -13,7 +13,7 @@ You will need to install the following before you can run the site locally:
 ### Steps
 1. Ensure you have Mongo running. By default, the site uses a mongo collection named 'alexbainter'. See [the mongo documentation](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/) for more details.
 
-    On Windows, you should be able to just type `mongod --dbpath /data/alexbainter` into a command prompt.
+    On Windows, you should be able to just type `mongod` into a command prompt. If you aren't using the default data path, you can use the `--dbpath` option. For example, `mongod --dbpath /data/alexbainter`
 
     On linux, execute `sudo service mongodb start`
 1. Clone the repository or download the source code.
