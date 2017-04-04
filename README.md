@@ -11,7 +11,11 @@ You will need to install the following before you can run the site locally:
  - [Node.js](https://nodejs.org/)
 
 ### Steps
-1. Ensure you have Mongo running. By default, the site uses a mongo collection named 'alexbainter'. See [the mongo documentation](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/) for more details. On windows, you should be able to just type `mongod --dbpath /data/alexbainter` into a command prompt.
+1. Ensure you have Mongo running. By default, the site uses a mongo collection named 'alexbainter'. See [the mongo documentation](https://docs.mongodb.com/manual/tutorial/manage-mongodb-processes/) for more details.
+
+    On Windows, you should be able to just type `mongod --dbpath /data/alexbainter` into a command prompt.
+
+    On linux, execute `sudo service mongodb start`
 1. Clone the repository or download the source code.
 1. Navigate to directory where you cloned/downloaded the repository.
 1. Run `npm install` from a command prompt.
