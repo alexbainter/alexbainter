@@ -12,7 +12,7 @@ const data = [
         skills: [
             'JavaScript',
             'C#',
-            'CSS',
+            'CSS3',
             'SQL',
             'Visual Basic',
             'Knockout',
@@ -35,7 +35,7 @@ const data = [
         skills: [
             'JavaScript',
             'C#',
-            'CSS',
+            'CSS3',
             'SQL',
             'Visual Basic',
             'Knockout',

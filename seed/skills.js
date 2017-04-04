@@ -27,7 +27,7 @@ const data = [
         rating: 'Proficient'
     },
     {
-        name: 'CSS',
+        name: 'CSS3',
         rating: 'Proficient'
     },
     {

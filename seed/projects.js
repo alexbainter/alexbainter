@@ -12,7 +12,7 @@ const data = [
             'JavaScript',
             'React',
             'Redux',
-            'CSS',
+            'CSS3',
             'Sass',
             'Design',
             'Mongo',
@@ -30,7 +30,7 @@ const data = [
         startDate: new Date(2017, 2, 1),
         skills: [
             'JavaScript',
-            'CSS',
+            'CSS3',
             'Sass',
             'Design',
             'Node',
