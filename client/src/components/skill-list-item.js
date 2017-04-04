@@ -33,7 +33,7 @@ class SkillListItem extends Component {
 
 function mapStateToProps({ data }) {
     return {
-        ratings: data.ratings
+        ratings: data.ratings.sort((a, b) => a.displayOrder > b.displayOrder)
     };
 }
 
