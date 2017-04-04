@@ -12,15 +12,15 @@ const data = [
     },
     {
         name: 'React',
-        rating: 'Familiar'
+        rating: 'Beginner'
     },
     {
         name: 'Redux',
-        rating: 'Familiar'
+        rating: 'Beginner'
     },
     {
         name: 'Angular',
-        rating: 'Beginner'
+        rating: 'Familiar'
     },
     {
         name: 'Java',
@@ -32,7 +32,7 @@ const data = [
     },
     {
         name: 'SQL',
-        rating: 'Familiar'
+        rating: 'Beginner'
     },
     {
         name: 'Visual Basic',
@@ -44,7 +44,7 @@ const data = [
     },
     {
         name: 'C++',
-        rating: 'Familiar'
+        rating: 'Beginner'
     },
     {
         name: 'Sass',
@@ -60,11 +60,11 @@ const data = [
     },
     {
         name: 'R',
-        rating: 'Familiar'
+        rating: 'Beginner'
     },
     {
         name: 'Android',
-        rating: 'Familiar'
+        rating: 'Beginner'
     },
     {
         name: 'jQuery',
@@ -76,11 +76,11 @@ const data = [
     },
     {
         name: 'Mongo',
-        rating: 'Familiar'
+        rating: 'Beginner'
     },
     {
         name: 'Node',
-        rating: 'Familiar'
+        rating: 'Proficient'
     },
     {
         name: 'Webpack',
@@ -92,10 +92,15 @@ const data = [
     },
     {
         name: 'Less',
-        rating: 'Familiar'
-    }, {
+        rating: 'Beginner'
+    },
+    {
         name: 'Pug',
-        rating: 'Familiar'
+        rating: 'Beginner'
+    },
+    {
+        name: 'Express',
+        rating: 'Beginner'
     }
 ];
 

@@ -2,12 +2,12 @@ const Rating = require('../models/Rating');
 
 const data = [
     {
-        name: 'Beginner',
+        name: 'Familiar',
         description: 'I\'ve been exposed to this, but I haven\'t practiced it much.',
         displayOrder: 10
     },
     {
-        name: 'Familiar',
+        name: 'Beginner',
         description: 'I\'ve practiced this, but rely on Google to help... a lot.',
         displayOrder: 20
     },
