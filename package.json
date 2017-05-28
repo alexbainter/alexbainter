@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "seed": "node seed/seed.js",
-    "start": "concurrently \"webpack --watch\" \"node server\"",
+    "dev": "concurrently \"webpack --watch\" \"node server\"",
     "deploy": "webpack -p && eb deploy"
   },
   "repository": {
