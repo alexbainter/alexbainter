@@ -22,18 +22,18 @@ app.use(bodyParser.json());
 app.use('/api', api);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, defaultHTML));
+  res.sendFile(path.resolve(__dirname, defaultHTML));
 });
 
 app.use((req, res, next) => {
-    res.status(404).send('Not found.');
+  res.status(404).send('Not found.');
 });
 
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Server error, please try again later.');
+  console.error(err.stack);
+  res.status(500).send('Server error, please try again later.');
 });
 
 app.listen(port, () => {
-    console.log(`App listening on port ${port}...`);
+  console.log(`App listening on port ${port}...`);
 });

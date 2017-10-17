@@ -10,11 +10,12 @@ import 'normalize.css';
 import 'font-awesome/scss/font-awesome.scss';
 
 const createStoreWithMiddleware = applyMiddleware(
-    promise
+  promise
 )(createStore);
 
 ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
-        <Router history={browserHistory} routes={routes} />
-    </Provider>
-, document.querySelector('.container'));
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>
+  , document.querySelector('.container')
+);

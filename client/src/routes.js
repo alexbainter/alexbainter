@@ -8,11 +8,11 @@ import Work from './components/work';
 import NotFound from './components/not-found';
 
 export default (
-    <Route path="/" component={App}>
-        <IndexRoute component={Home} />
-        <Route path="about" component={About} />
-        <Route path="skills" component={Skills} />
-        <Route path="work" component={Work} />
-        <Route path="*" component={NotFound} />
-    </Route>
+  <Route path="/" component={App}>
+  <IndexRoute component={Home} />
+  <Route path="about" component={About} />
+  <Route path="skills" component={Skills} />
+  <Route path="work" component={Work} />
+  <Route path="*" component={NotFound} />
+</Route>
 );

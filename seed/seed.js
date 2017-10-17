@@ -12,18 +12,18 @@ mongoose.Promise = Promise;
 
 Promise.all(saveRatings())
 .then(() => {
-    return Promise.all(saveSkills());
+  return Promise.all(saveSkills());
 })
 .then(() => {
-    return Promise.all(savePositions());
+  return Promise.all(savePositions());
 })
 .then(() => {
-    return Promise.all(saveProjects());
+  return Promise.all(saveProjects());
 })
 .then(() => {
-    return Promise.all(saveSnippets());
+  return Promise.all(saveSnippets());
 })
 .then(() => {
-    console.log('Seed Complete.');
-    process.exit();
+  console.log('Seed Complete.');
+  process.exit();
 });

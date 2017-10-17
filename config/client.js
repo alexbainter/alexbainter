@@ -6,9 +6,9 @@ const appEntry = path.resolve(clientSrcDir, 'index.js');
 const defaultHTML = path.resolve(clientDir, 'index.html');
 
 module.exports = {
-    clientDir,
-    clientSrcDir,
-    clientDistDir,
-    appEntry,
-    defaultHTML
+  clientDir,
+  clientSrcDir,
+  clientDistDir,
+  appEntry,
+  defaultHTML
 };

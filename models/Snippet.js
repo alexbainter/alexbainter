@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const SnippetSchema = new mongoose.Schema({
-    code: String
+  code: String
 });
 
 module.exports = mongoose.model('Snippet', SnippetSchema);

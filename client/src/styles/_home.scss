@@ -3,41 +3,41 @@
 $fakeCodeColor: black;
 
 .fake-code {
-    font-family: $monospaceFontFamilyName, monospace;
-    white-space: pre-wrap;
-    display: inline;
-    tab-size: 4;
-    font-size: 1.25rem;
+  font-family: $monospaceFontFamilyName, monospace;
+  white-space: pre-wrap;
+  display: inline;
+  tab-size: 4;
+  font-size: 1.25rem;
 
-    &--selected {
-        background: $fakeCodeColor;
-        color: white;
-
-        &::after {
-            display: none;
-        }
+  &--selected {
+    background: $fakeCodeColor;
+    color: white;
+    
+    &::after {
+      display: none;
     }
+  }
 
-    &--idle {
-
-        &::after {
-            animation: 1s blink step-end infinite;
-        }
-    }
+  &--idle {
 
     &::after {
-        content: '';
-        display:inline-block;
-        vertical-align: middle;
-        height: 1.5rem;
-        width: 2px;
-        background: $fakeCodeColor;
-        transform: translateY(-5%);
+      animation: 1s blink step-end infinite;
     }
+  }
+
+  &::after {
+    content: '';
+    display:inline-block;
+    vertical-align: middle;
+    height: 1.5rem;
+    width: 2px;
+    background: $fakeCodeColor;
+    transform: translateY(-5%);
+  }
 }
 
 .tight-text {
-    line-height: 1;
+  line-height: 1;
 }
 
 @keyframes blink {
@@ -50,15 +50,15 @@ $fakeCodeColor: black;
 }
 
 @media screen and (max-width: $mobileMaxWidth) {
-    .fake-code {
-        font-size: 0.6rem;
+  .fake-code {
+    font-size: 0.6rem;
 
-        &::after {
-            height: 1rem;
-        }
+    &::after {
+      height: 1rem;
     }
+  }
 
-    .tight-text {
-        line-height: 0.6rem;
-    }
+  .tight-text {
+    line-height: 0.6rem;
+  }
 }
