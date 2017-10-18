@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTimeout from 'react-timeout';
 import axios from 'axios';
-import { fetchNewSnippet, changeSnippet } from '../actions';
+import { getRandomSnippet } from '../github-api';
 import '../styles/_home.scss';
 
 const TYPING_CHAR_PER_MS = 40;
@@ -37,7 +37,7 @@ class Home extends Component {
   }
 
   typeCode() {
-    let chunks = getKeystrokedChunks(this.state.currentSnippet.code);
+    let chunks = getKeystrokedChunks(this.state.currentSnippet);
     this.setState({ code: '', typing: true, textSelected: false });
     let i = 0;
     let typeInterval = this.props.setInterval(() => {
@@ -62,9 +62,8 @@ class Home extends Component {
   }
 
   fetchNewSnippet() {
-    const currentSnippetId = this.state.currentSnippet ? this.state.currentSnippet._id : '';
-    return axios.get(`/api/snippet/${currentSnippetId}`).then((res) => {
-      this.setState({ nextSnippet: res.data });
+    return getRandomSnippet().then(snippet => {
+      this.setState({ nextSnippet: snippet });
     });
   }
 

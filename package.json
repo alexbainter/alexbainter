@@ -20,11 +20,13 @@
   },
   "homepage": "https://github.com/metalex9/alexbainter#readme",
   "dependencies": {
+    "array-flatten": "^2.1.1",
     "axios": "^0.15.3",
     "body-parser": "^1.16.0",
     "compression": "^1.6.2",
     "dateformat": "^2.0.0",
     "express": "^4.14.1",
+    "file-extension": "^3.1.2",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
     "method-override": "^2.3.7",

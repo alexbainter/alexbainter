@@ -8,6 +8,7 @@ import reducers from './reducers';
 import routes from './routes';
 import 'normalize.css';
 import 'font-awesome/scss/font-awesome.scss';
+import './github-api';
 
 const createStoreWithMiddleware = applyMiddleware(
   promise
