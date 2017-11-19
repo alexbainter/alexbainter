@@ -89,5 +89,5 @@ function mapStateToProps({ data }) {
 }
 
 export default connect(mapStateToProps, { fetchProjects, fetchPositions })(
-  Work
+  Work,
 );
