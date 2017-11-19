@@ -41,7 +41,7 @@ class Work extends Component {
   renderProject(project) {
     return (
       <div key={project._id} className="work-item">
-        <h3 className="work-item__header"><a href={project.linkURL}>{project.name}</a></h3>
+        <h3 className="work-item__header">{ typeof project.linkURL === 'string' ? <a href={project.linkURL}>{project.name}</a> : project.name }</h3>
         <h4 className="work-item__header"><a href={project.codeURL}>Source Code</a></h4>
         <h5 className="work-item__header">{formatDate(project.startDate)}</h5>
         <p className="work-item__description">{project.description}</p>

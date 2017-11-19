@@ -38,6 +38,23 @@ const data = [
       'jQuery',
       'Express'
     ]
+  },
+  {
+    name: 'Taco Builder',
+    codeURL: 'https://github.com/metalex9/taco-builder',
+    description: 'This is just the frontend of a site which allows users to choose recipes from the Taco Fancy API. It was built in a short amount of time to demonstrate and practice building sites with React/Redux',
+    startDate: new Date(2017, 4, 1),
+    skills: [
+      'JavaScript',
+      'CSS3',
+      'Sass',
+      'Node',
+      'Webpack',
+      'HTML5',
+      'Express',
+      'React',
+      'Redux'
+    ]
   }
 ];
 
