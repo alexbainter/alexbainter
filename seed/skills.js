@@ -7,6 +7,10 @@ const data = [
     rating: 'Expert',
   },
   {
+    name: 'ES6+',
+    rating: 'Expert',
+  },
+  {
     name: 'C#',
     rating: 'Proficient',
   },
@@ -39,7 +43,7 @@ const data = [
     rating: 'Proficient',
   },
   {
-    name: 'Knockout',
+    name: 'Knockout.js',
     rating: 'Expert',
   },
   {
