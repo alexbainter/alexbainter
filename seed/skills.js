@@ -71,10 +71,6 @@ const data = [
     rating: 'Proficient'
   },
   {
-    name: 'Design',
-    rating: 'Proficient'
-  },
-  {
     name: 'Mongo',
     rating: 'Beginner'
   },

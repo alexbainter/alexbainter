@@ -19,7 +19,6 @@ const data = [
       'gulp',
       'ASP.NET',
       'jQuery',
-      'Design',
       'Mongo',
       'HTML5',
       'Sass'
@@ -41,7 +40,6 @@ const data = [
       'Knockout',
       'ASP.NET',
       'jQuery',
-      'Design',
       'Mongo',
       'HTML5'
     ]
