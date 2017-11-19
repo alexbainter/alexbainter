@@ -16,11 +16,11 @@ const data = [
   },
   {
     name: 'React',
-    rating: 'Beginner',
+    rating: 'Proficient',
   },
   {
     name: 'Redux',
-    rating: 'Beginner',
+    rating: 'Proficient',
   },
   {
     name: 'Angular',
@@ -113,6 +113,10 @@ const data = [
   {
     name: 'Karma',
     rating: 'Expert',
+  },
+  {
+    name: 'Rollup',
+    rating: 'Beginner',
   },
 ];
 
