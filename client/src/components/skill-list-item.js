@@ -23,17 +23,22 @@ class SkillListItem extends Component {
 
   renderCircle(rating) {
     return (
-      <div className={'circle' +
-        (this.props.rating.displayOrder >= rating.displayOrder ? ' circle--filled' : '')}
-        key={rating._id}>
-      </div>
+      <div
+        className={
+          'circle' +
+          (this.props.rating.displayOrder >= rating.displayOrder
+            ? ' circle--filled'
+            : '')
+        }
+        key={rating._id}
+      />
     );
   }
 }
 
 function mapStateToProps({ data }) {
   return {
-    ratings: data.ratings.sort((a, b) => a.displayOrder > b.displayOrder)
+    ratings: data.ratings.sort((a, b) => a.displayOrder > b.displayOrder),
   };
 }
 

@@ -18,13 +18,23 @@ class Home extends Component {
       typing: false,
       textSelected: false,
       currentSnippet: null,
-      nextSnippet: null
+      nextSnippet: null,
     };
   }
   render() {
     return (
       <div>
-        <pre className="tight-text"><code className={"fake-code" + (this.state.typing ? '' : ' fake-code--idle') + (this.state.textSelected ? ' fake-code--selected' : '')}>{this.state.code}</code></pre>
+        <pre className="tight-text">
+          <code
+            className={
+              'fake-code' +
+              (this.state.typing ? '' : ' fake-code--idle') +
+              (this.state.textSelected ? ' fake-code--selected' : '')
+            }
+          >
+            {this.state.code}
+          </code>
+        </pre>
       </div>
     );
   }
@@ -42,7 +52,7 @@ class Home extends Component {
     let i = 0;
     let typeInterval = this.props.setInterval(() => {
       if (i < chunks.length) {
-        this.setState({code: this.state.code += chunks[i++]});
+        this.setState({ code: (this.state.code += chunks[i++]) });
       } else {
         clearInterval(typeInterval);
         this.clearCodeAndReset();
@@ -91,4 +101,4 @@ function getKeystrokedChunks(text) {
   return chunks;
 }
 
-export default (ReactTimeout(Home));
+export default ReactTimeout(Home);

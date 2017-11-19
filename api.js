@@ -14,16 +14,21 @@ router.get('/ratings', (req, res, next) => {
 });
 
 router.get('/skills', (req, res, next) => {
-  Skill.find().populate('rating').exec(handleQueryResult.bind(null, res, next));
+  Skill.find()
+    .populate('rating')
+    .exec(handleQueryResult.bind(null, res, next));
 });
 
 router.get('/positions', (req, res, next) => {
-  Position.find().populate('skills').exec(handleQueryResult.bind(null, res, next));
+  Position.find()
+    .populate('skills')
+    .exec(handleQueryResult.bind(null, res, next));
 });
 
 router.get('/projects', (req, res, next) => {
-  Project.find().populate('skills').exec(handleQueryResult.bind(null, res, next));
+  Project.find()
+    .populate('skills')
+    .exec(handleQueryResult.bind(null, res, next));
 });
-
 
 module.exports = router;

@@ -4,115 +4,137 @@ const Rating = require('../models/Rating');
 const data = [
   {
     name: 'JavaScript',
-    rating: 'Expert'
+    rating: 'Expert',
+  },
+  {
+    name: 'ES6+',
+    rating: 'Expert',
   },
   {
     name: 'C#',
-    rating: 'Expert'
+    rating: 'Proficient',
   },
   {
     name: 'React',
-    rating: 'Beginner'
+    rating: 'Proficient',
   },
   {
     name: 'Redux',
-    rating: 'Beginner'
+    rating: 'Proficient',
   },
   {
     name: 'Angular',
-    rating: 'Familiar'
+    rating: 'Familiar',
   },
   {
     name: 'Java',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'CSS3',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'SQL',
-    rating: 'Beginner'
+    rating: 'Beginner',
   },
   {
     name: 'Visual Basic',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
-    name: 'Knockout',
-    rating: 'Expert'
+    name: 'Knockout.js',
+    rating: 'Expert',
   },
   {
     name: 'C++',
-    rating: 'Beginner'
+    rating: 'Beginner',
   },
   {
     name: 'Sass',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'gulp',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'ASP.NET',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'R',
-    rating: 'Beginner'
+    rating: 'Beginner',
   },
   {
     name: 'Android',
-    rating: 'Beginner'
+    rating: 'Beginner',
   },
   {
     name: 'jQuery',
-    rating: 'Proficient'
-  },
-  {
-    name: 'Design',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'Mongo',
-    rating: 'Beginner'
+    rating: 'Beginner',
   },
   {
     name: 'Node',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'Webpack',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'HTML5',
-    rating: 'Proficient'
+    rating: 'Proficient',
   },
   {
     name: 'Less',
-    rating: 'Beginner'
+    rating: 'Beginner',
   },
   {
     name: 'Pug',
-    rating: 'Beginner'
+    rating: 'Beginner',
   },
   {
     name: 'Express',
-    rating: 'Beginner'
-  }
+    rating: 'Beginner',
+  },
+  {
+    name: 'Mocha',
+    rating: 'Proficient',
+  },
+  {
+    name: 'Chai',
+    rating: 'Proficient',
+  },
+  {
+    name: 'Karma',
+    rating: 'Expert',
+  },
+  {
+    name: 'Rollup',
+    rating: 'Beginner',
+  },
 ];
 
 module.exports = Array.prototype.map.bind(data, skillData => {
-  return Rating.findOne({'name': skillData.rating}).then(rating => {
+  return Rating.findOne({ name: skillData.rating }).then(rating => {
     if (!rating) {
-      console.log(`"${skillData.name}" Skill Warning: No corresponding rating found for "${skillData.rating}"`);
+      console.log(
+        `"${
+          skillData.name
+        }" Skill Warning: No corresponding rating found for "${
+          skillData.rating
+        }"`
+      );
     }
 
     return new Skill({
       name: skillData.name,
-      rating: rating
+      rating: rating,
     }).save(err => {
       if (err) {
         console.log(`"${skillData.name}" Skill Error: ${err}`);

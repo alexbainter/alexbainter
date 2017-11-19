@@ -8,9 +8,9 @@ export const FETCH_PROJECTS = 'FETCH_PROJECTS';
 function baseAPIFetch(actionType, apiRoute) {
   const request = axios.get(`/api/${apiRoute}`);
   return {
-      type: actionType,
-      payload: request
-  }
+    type: actionType,
+    payload: request,
+  };
 }
 
 export function fetchSkills() {

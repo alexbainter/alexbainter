@@ -1,10 +1,15 @@
-import { FETCH_SKILLS, FETCH_RATINGS, FETCH_POSITIONS, FETCH_PROJECTS } from '../actions';
+import {
+  FETCH_SKILLS,
+  FETCH_RATINGS,
+  FETCH_POSITIONS,
+  FETCH_PROJECTS,
+} from '../actions';
 
 const INITIAL_STATE = {
   ratings: [],
   skills: [],
   positions: [],
-  projects: []
+  projects: [],
 };
 
 export default function(state = INITIAL_STATE, action) {

@@ -7,9 +7,12 @@ const ProjectSchema = new mongoose.Schema({
   codeURL: String,
   description: String,
   startDate: Date,
-  skills: [{
-    type: mongoose.Schema.Types.ObjectId, ref: Skill.modelName
-  }]
+  skills: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: Skill.modelName,
+    },
+  ],
 });
 
 module.exports = mongoose.model('Project', ProjectSchema);

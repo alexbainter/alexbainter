@@ -1,23 +1,23 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const { appEntry, clientDistDir, compiledStyles} = require('./config/client');
+const { appEntry, clientDistDir, compiledStyles } = require('./config/client');
 
 module.exports = {
   devtool: 'source-map',
   entry: path.resolve(__dirname, appEntry),
   output: {
     path: path.resolve(__dirname, clientDistDir),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
       {
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
       {
         test: /\.scss$/,
@@ -30,16 +30,14 @@ module.exports = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader!postcss-loader'
-        })
+          use: 'css-loader!postcss-loader',
+        }),
       },
       {
         test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
-        use: 'url-loader'
-      }
-    ]
+        use: 'url-loader',
+      },
+    ],
   },
-  plugins: [
-    new ExtractTextPlugin('site.css')
-  ]
+  plugins: [new ExtractTextPlugin('site.css')],
 };
