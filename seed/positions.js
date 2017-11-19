@@ -72,6 +72,7 @@ const data = [
       'Webpack',
       'React',
       'Redux',
+      'Rollup',
     ],
   },
 ];
