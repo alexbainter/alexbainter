@@ -8,7 +8,7 @@ const data = [
   },
   {
     name: 'C#',
-    rating: 'Expert'
+    rating: 'Proficient'
   },
   {
     name: 'React',
@@ -97,7 +97,19 @@ const data = [
   {
     name: 'Express',
     rating: 'Beginner'
-  }
+  },
+  {
+    name: 'Mocha',
+    rating: 'Proficient'
+  },
+  {
+    name: 'Chai',
+    rating: 'Proficient'
+  },
+  {
+    name: 'Karma',
+    rating: 'Expert'
+  },
 ];
 
 module.exports = Array.prototype.map.bind(data, skillData => {
