@@ -8,7 +8,7 @@ import '../styles/_skills.scss';
 class Skills extends Component {
   constructor(props) {
     super(props);
-    this.state = { skillsInput: '', visibleSkills: []}
+    this.state = { skillsInput: '', visibleSkills: [] };
   }
 
   componentWillMount() {
@@ -31,7 +31,7 @@ class Skills extends Component {
           type="text"
           placeholder="JavaScript, C#, git"
           value={this.state.skillsInput}
-          onChange={(event) => this.onInputChange(event.target.value)}
+          onChange={event => this.onInputChange(event.target.value)}
         />
         <ul className="skills-list">
           {this.state.visibleSkills.map(this.renderSkill)}
@@ -42,7 +42,7 @@ class Skills extends Component {
   }
 
   renderSkill(skill) {
-    return <SkillListItem {...skill} key={skill._id} />
+    return <SkillListItem {...skill} key={skill._id} />;
   }
 
   componentDidUpdate(prevProps) {
@@ -56,11 +56,11 @@ class Skills extends Component {
     if (searchTerms.length === 0) {
       matchingSkills = this.props.skills;
     } else {
-      const terms = searchTerms.split(/\s*,\s*/).map((term) => {
+      const terms = searchTerms.split(/\s*,\s*/).map(term => {
         return term.toUpperCase();
       });
-      matchingSkills = this.props.skills.filter((skill) => {
-        return terms.some((term) => {
+      matchingSkills = this.props.skills.filter(skill => {
+        return terms.some(term => {
           return term.trim() && skill.name.toUpperCase().includes(term);
         });
       });
@@ -73,12 +73,17 @@ class Skills extends Component {
 function mapStateToProps({ data }) {
   return {
     skills: sortSkills(data.skills),
-    ratings: data.ratings
+    ratings: data.ratings,
   };
 }
 
 function sortSkills(skills) {
-  return _.sortBy(skills, [(skill) => { return -skill.rating.displayOrder}, 'name']);
+  return _.sortBy(skills, [
+    skill => {
+      return -skill.rating.displayOrder;
+    },
+    'name',
+  ]);
 }
 
 export default connect(mapStateToProps, { fetchSkills, fetchRatings })(Skills);

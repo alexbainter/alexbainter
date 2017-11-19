@@ -7,7 +7,8 @@
     "seed": "node seed/seed.js",
     "dev": "concurrently \"webpack --watch\" \"node server\"",
     "deploy": "webpack -p && eb deploy",
-    "start": "node server.js"
+    "start": "node server.js",
+    "prettier": "prettier --write **/*.js"
   },
   "repository": {
     "type": "git",

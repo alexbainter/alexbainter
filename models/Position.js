@@ -8,9 +8,12 @@ const PositionSchema = new mongoose.Schema({
   description: String,
   startDate: Date,
   endDate: Date,
-  skills: [{
-    type: mongoose.Schema.Types.ObjectId, ref: Skill.modelName
-  }]
+  skills: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: Skill.modelName,
+    },
+  ],
 });
 
 module.exports = mongoose.model('Position', PositionSchema);

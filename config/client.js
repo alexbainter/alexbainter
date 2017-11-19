@@ -10,5 +10,5 @@ module.exports = {
   clientSrcDir,
   clientDistDir,
   appEntry,
-  defaultHTML
+  defaultHTML,
 };
