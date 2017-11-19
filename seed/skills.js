@@ -120,7 +120,7 @@ module.exports = Array.prototype.map.bind(data, skillData => {
           skillData.name
         }" Skill Warning: No corresponding rating found for "${
           skillData.rating
-        }"`,
+        }"`
       );
     }
 

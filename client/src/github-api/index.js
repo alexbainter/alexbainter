@@ -8,7 +8,7 @@ const makeFilterByType = match => ({ type }) => type === match;
 
 async function getContents(path = '') {
   const { data } = await axios.get(
-    `https://api.github.com/repos/metalex9/alexbainter/contents${path}`,
+    `https://api.github.com/repos/metalex9/alexbainter/contents${path}`
   );
   const files = data
     .filter(makeFilterByType('file'))
@@ -21,7 +21,7 @@ async function getContents(path = '') {
 const getRandomSnippet = () =>
   getContents()
     .then(files =>
-      axios.get(files[Math.floor(Math.random() * files.length)].download_url),
+      axios.get(files[Math.floor(Math.random() * files.length)].download_url)
     )
     .then(({ data }) => data);
 
