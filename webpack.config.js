@@ -5,7 +5,7 @@ const { appEntry, clientDistDir, compiledStyles } = require('./config/client');
 
 module.exports = {
   devtool: 'source-map',
-  entry: path.resolve(__dirname, appEntry),
+  entry: ['babel-polyfill', path.resolve(__dirname, appEntry)],
   output: {
     path: path.resolve(__dirname, clientDistDir),
     filename: 'bundle.js',
