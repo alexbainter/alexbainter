@@ -12,7 +12,7 @@ const INITIAL_STATE = {
   projects: [],
 };
 
-export default function(state = INITIAL_STATE, action) {
+const dataReducer = function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_SKILLS:
       return { ...state, skills: action.payload.data };
@@ -25,4 +25,6 @@ export default function(state = INITIAL_STATE, action) {
     default:
       return state;
   }
-}
+};
+
+export { dataReducer };
