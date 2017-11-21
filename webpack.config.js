@@ -1,17 +1,20 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const { appEntry, clientDistDir, compiledStyles } = require('./config/client');
+const { appEntry, clientDistDir, clientSrcDir } = require('./config/client');
 
 module.exports = {
   devtool: 'source-map',
-  entry: ['babel-polyfill', path.resolve(__dirname, appEntry)],
+  entry: ['babel-polyfill', path.resolve(appEntry)],
   output: {
-    path: path.resolve(__dirname, clientDistDir),
+    path: path.resolve(clientDistDir),
     filename: 'bundle.js',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      styles: path.resolve(clientSrcDir, 'styles'),
+    },
   },
   module: {
     rules: [

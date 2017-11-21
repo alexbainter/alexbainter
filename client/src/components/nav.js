@@ -1,39 +1,40 @@
 import React, { Component } from 'react';
-import { Link, IndexLink } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import '../styles/_nav.scss';
 
 export default class Nav extends Component {
   render() {
     return (
       <div className="nav">
-        <IndexLink
+        <NavLink
           to="/"
           className="nav__header"
           activeClassName="nav__header--active"
+          exact
         >
           alexbainter
-        </IndexLink>
-        <Link
+        </NavLink>
+        <NavLink
           to="/skills"
           className="nav__link"
           activeClassName="nav__link--active"
         >
           skills
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/work"
           className="nav__link"
           activeClassName="nav__link--active"
         >
           work
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/about"
           className="nav__link"
           activeClassName="nav__link--active"
         >
           about
-        </Link>
+        </NavLink>
       </div>
     );
   }
