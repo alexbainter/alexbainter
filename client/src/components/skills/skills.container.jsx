@@ -28,21 +28,13 @@ class SkillsContainer extends Component {
   }
 }
 
-function mapStateToProps({ data }) {
-  return {
-    skills: sortSkills(data.skills),
-    ratings: data.ratings,
-  };
-}
+const sortSkills = skills =>
+  sortBy(skills, [skill => -skill.rating.displayOrder, 'name']);
 
-function sortSkills(skills) {
-  return sortBy(skills, [
-    skill => {
-      return -skill.rating.displayOrder;
-    },
-    'name',
-  ]);
-}
+const mapStateToProps = ({ data }) => ({
+  skills: sortSkills(data.skills),
+  ratings: data.ratings,
+});
 
 const ConnectedSkillsContainer = connect(mapStateToProps, {
   fetchSkills,
