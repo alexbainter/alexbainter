@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactTimeout from 'react-timeout';
 import axios from 'axios';
-import { getRandomSnippet } from '../../github-api';
+import { getRandomSnippet } from '../github-api';
 import 'styles/_home.scss';
 
 const TYPING_CHAR_PER_MS = 40;
