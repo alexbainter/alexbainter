@@ -8,8 +8,6 @@ class SkillsContainer extends Component {
   componentWillMount() {
     if (!this.props.skills.length) {
       this.props.fetchSkills();
-    } else {
-      this.setState({ visibleSkills: this.props.skills });
     }
 
     if (!this.props.ratings.length) {
