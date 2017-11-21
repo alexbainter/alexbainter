@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { RatingCircle } from './rating-circle';
 
-const makeRenderCircle = skillDisplayOrder => rating => (
+const makeRenderCircle = skillDisplayOrder => ({ displayOrder, _id }) => (
   <RatingCircle
     skillRatingDisplayOrder={skillDisplayOrder}
-    rating={rating}
-    key={rating._id}
+    ratingDisplayOrder={displayOrder}
+    key={_id}
   />
 );
 

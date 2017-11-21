@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RatingCircle = ({ skillRatingDisplayOrder, rating }) => (
+const RatingCircle = ({ skillRatingDisplayOrder, ratingDisplayOrder }) => (
   <div
     className={
       'circle' +
-      (skillRatingDisplayOrder >= rating.displayOrder ? ' circle--filled' : '')
+      (skillRatingDisplayOrder >= ratingDisplayOrder ? ' circle--filled' : '')
     }
-    key={rating._id}
   />
 );
 
 RatingCircle.propTypes = {
   skillRatingDisplayOrder: PropTypes.number.isRequired,
-  rating: PropTypes.object.isRequired,
+  ratingDisplayOrder: PropTypes.number.isRequired,
 };
 
 export { RatingCircle };
