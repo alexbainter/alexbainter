@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Nav } from './nav';
 import 'styles/_app.scss';
 
-const App = () => (
+const App = ({ children }) => (
   <div>
     <Nav />
-    <div className="content">{this.props.children}</div>
+    <div className="content">{children}</div>
   </div>
 );
 
