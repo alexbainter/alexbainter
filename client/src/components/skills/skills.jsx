@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SkillListItem from './skill-list-item';
+import PropTypes from 'prop-types';
+import { SkillListItem } from './skill-list-item';
 import 'styles/_skills.scss';
 
 class Skills extends Component {
