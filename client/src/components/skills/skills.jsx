@@ -55,4 +55,8 @@ class Skills extends Component {
   }
 }
 
+Skills.propTypes = {
+  skills: PropTypes.array.isRequired,
+};
+
 export { Skills };
