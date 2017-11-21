@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import _ from 'lodash';
-import { fetchSkills, fetchRatings } from '../actions';
-import SkillListItem from './skill-list-item';
-import '../styles/_skills.scss';
+import PropTypes from 'prop-types';
+import { SkillListItem } from './skill-list-item';
+import 'styles/_skills.scss';
 
 class Skills extends Component {
   constructor(props) {
@@ -11,15 +9,9 @@ class Skills extends Component {
     this.state = { skillsInput: '', visibleSkills: [] };
   }
 
-  componentWillMount() {
-    if (!this.props.skills.length) {
-      this.props.fetchSkills();
-    } else {
-      this.setState({ visibleSkills: this.props.skills });
-    }
-
-    if (!this.props.ratings.length) {
-      this.props.fetchRatings();
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.skills.length !== this.props.skills.length) {
+      this.setState({ visibleSkills: nextProps.skills });
     }
   }
 
@@ -45,12 +37,6 @@ class Skills extends Component {
     return <SkillListItem {...skill} key={skill._id} />;
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.skills.length !== this.props.skills.length) {
-      this.setState({ visibleSkills: this.props.skills });
-    }
-  }
-
   onInputChange(searchTerms) {
     let matchingSkills;
     if (searchTerms.length === 0) {
@@ -70,20 +56,8 @@ class Skills extends Component {
   }
 }
 
-function mapStateToProps({ data }) {
-  return {
-    skills: sortSkills(data.skills),
-    ratings: data.ratings,
-  };
-}
+Skills.propTypes = {
+  skills: PropTypes.array.isRequired,
+};
 
-function sortSkills(skills) {
-  return _.sortBy(skills, [
-    skill => {
-      return -skill.rating.displayOrder;
-    },
-    'name',
-  ]);
-}
-
-export default connect(mapStateToProps, { fetchSkills, fetchRatings })(Skills);
+export { Skills };

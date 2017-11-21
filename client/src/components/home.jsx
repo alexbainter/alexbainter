@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ReactTimeout from 'react-timeout';
 import axios from 'axios';
 import { getRandomSnippet } from '../github-api';
-import '../styles/_home.scss';
+import 'styles/_home.scss';
 
 const TYPING_CHAR_PER_MS = 40;
 const TYPING_IDLE_TIME_MS = 2000;
@@ -26,11 +26,9 @@ class Home extends Component {
       <div>
         <pre className="tight-text">
           <code
-            className={
-              'fake-code' +
-              (this.state.typing ? '' : ' fake-code--idle') +
-              (this.state.textSelected ? ' fake-code--selected' : '')
-            }
+            className={`fake-code ${
+              this.state.typing ? '' : 'fake-code--idle'
+            }${this.state.textSelected} ? 'fake-code--selected' : ''`}
           >
             {this.state.code}
           </code>
@@ -101,4 +99,6 @@ function getKeystrokedChunks(text) {
   return chunks;
 }
 
-export default ReactTimeout(Home);
+const ReactTimeoutHome = ReactTimeout(Home);
+
+export { ReactTimeoutHome as Home };
