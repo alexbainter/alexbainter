@@ -83,11 +83,7 @@ class Home extends Component {
   }
 }
 
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
-
-function getKeystrokedChunks(text) {
+const getKeystrokedChunks = text => {
   let chunks = [];
   let match;
   do {
@@ -97,7 +93,7 @@ function getKeystrokedChunks(text) {
     }
   } while (match);
   return chunks;
-}
+};
 
 const ReactTimeoutHome = ReactTimeout(Home);
 
