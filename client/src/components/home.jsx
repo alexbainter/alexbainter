@@ -28,7 +28,7 @@ class Home extends Component {
           <code
             className={`fake-code ${
               this.state.typing ? '' : 'fake-code--idle'
-            }${this.state.textSelected} ? 'fake-code--selected' : ''`}
+            } ${this.state.textSelected ? 'fake-code--selected' : ''}`}
           >
             {this.state.code}
           </code>
