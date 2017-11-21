@@ -8,7 +8,7 @@
     "dev": "concurrently \"webpack --watch\" \"node server\"",
     "deploy": "webpack -p && eb deploy",
     "start": "node server.js",
-    "prettier": "prettier --write **/*.js"
+    "prettier": "prettier --write **/*.{js,jsx}"
   },
   "repository": {
     "type": "git",
