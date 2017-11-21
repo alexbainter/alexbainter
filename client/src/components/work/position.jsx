@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { formatDate, stringifySkills } from './utils';
+import { formatDate, stringifySkills } from '../utils';
 
 const formatDateRange = (startDate, endDate) =>
   `${formatDate(startDate)} - ${endDate ? formatDate(endDate) : 'Now'}`;

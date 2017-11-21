@@ -4,15 +4,12 @@ import dateFormat from 'dateformat';
 import { sortBy } from 'lodash';
 import { fetchProjects, fetchPositions } from '../../actions';
 import { Work } from './work';
+import { ifEmpty } from '../utils';
 
 class WorkContainer extends Component {
   componentWillMount() {
-    if (!this.props.positions.length) {
-      this.props.fetchPositions();
-    }
-    if (!this.props.projects.length) {
-      this.props.fetchProjects();
-    }
+    ifEmpty(this.props.positions)(this.props.fetchPositions);
+    ifEmpty(this.props.projects)(this.props.fetchProjects);
   }
 
   render() {

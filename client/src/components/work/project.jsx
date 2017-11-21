@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { stringifySkills, formatDate } from './utils';
+import { stringifySkills, formatDate } from '../utils';
 
 const Project = ({
   _id,

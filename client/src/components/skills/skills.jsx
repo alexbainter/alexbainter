@@ -6,7 +6,7 @@ import 'styles/_skills.scss';
 class Skills extends Component {
   constructor(props) {
     super(props);
-    this.state = { skillsInput: '', visibleSkills: [] };
+    this.state = { skillsInput: '', visibleSkills: this.props.skills };
   }
 
   componentWillReceiveProps(nextProps) {

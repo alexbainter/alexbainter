@@ -3,16 +3,12 @@ import { connect } from 'react-redux';
 import { fetchSkills, fetchRatings } from '../../actions';
 import { sortBy } from 'lodash';
 import { Skills } from './skills';
+import { ifEmpty } from '../utils';
 
 class SkillsContainer extends Component {
   componentWillMount() {
-    if (!this.props.skills.length) {
-      this.props.fetchSkills();
-    }
-
-    if (!this.props.ratings.length) {
-      this.props.fetchRatings();
-    }
+    ifEmpty(this.props.skills)(this.props.fetchSkills);
+    ifEmpty(this.props.ratings)(this.props.fetchRatings);
   }
 
   render() {

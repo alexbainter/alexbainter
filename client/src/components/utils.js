@@ -8,4 +8,10 @@ const stringifySkills = skills =>
 
 const formatDate = date => dateFormat(date, 'mmm yyyy');
 
-export { stringifySkills, formatDate };
+const ifEmpty = arr => fn => {
+  if (arr.length === 0) {
+    fn();
+  }
+};
+
+export { stringifySkills, formatDate, ifEmpty };
