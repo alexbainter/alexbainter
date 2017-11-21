@@ -3,7 +3,7 @@ import axios from 'axios';
 import flatten from 'array-flatten';
 import { memoize as mem } from 'lodash';
 
-const acceptedFileTypes = ['js', 'html', 'scss'];
+const acceptedFileTypes = ['js', 'html', 'scss', 'jsx'];
 
 const makeFilterByType = match => ({ type }) => type === match;
 
