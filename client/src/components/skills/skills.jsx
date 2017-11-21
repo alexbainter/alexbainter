@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import SkillListItem from './skill-list-item';
 import 'styles/_skills.scss';
 
-const makeLengthsAreUnequal = (nextProps, currentProps) => propName =>
-  nextProps[propName].length !== currentProps[propName].length;
-
 class Skills extends Component {
   constructor(props) {
     super(props);
