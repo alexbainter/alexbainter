@@ -36,7 +36,7 @@ function mapStateToProps({ data }) {
 }
 
 function sortSkills(skills) {
-  return _.sortBy(skills, [
+  return sortBy(skills, [
     skill => {
       return -skill.rating.displayOrder;
     },
