@@ -4,7 +4,7 @@ import { App } from './app';
 import { About } from './about';
 import { Home } from './home';
 import { Skills } from './skills';
-import Work from './work';
+import { Work } from './work';
 import { NotFound } from './not-found';
 
 const Router = () => (
