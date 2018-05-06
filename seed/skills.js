@@ -24,7 +24,7 @@ const data = [
   },
   {
     name: 'Angular',
-    rating: 'Familiar',
+    rating: 'Beginner',
   },
   {
     name: 'Java',

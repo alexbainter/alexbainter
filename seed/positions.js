@@ -3,6 +3,24 @@ const Position = require('../models/Position');
 
 const data = [
   {
+    name: 'Frontend Software Engineer',
+    company: 'Swimlane',
+    linkURL: 'http://swimlane.com',
+    description:
+      "I develop interfaces for Swimlane's primary software product. I also help maintain and develop our many open source projects.",
+    startDate: new Date(2018, 2, 21),
+    skills: [
+      'JavaScript',
+      'CSS3',
+      'Angular',
+      'HTML5',
+      'Karma',
+      'Webpack',
+      'Sass',
+      'ES6+',
+    ],
+  },
+  {
     name: 'Software Engineer, Frontend Chapter Lead',
     company: 'Spreetail',
     linkURL: 'http://spreetail.com/',
@@ -55,8 +73,9 @@ const data = [
     company: 'Spreetail',
     linkURL: 'http://spreetail.com/',
     description:
-      'I make sure frontend software development at Spreetail is as great as it can be. I determine the standards and practices needed to ensure successful user interface development and facilitate adoption across projects and teams. I also help individual developers grow their frontend development skills.',
+      'I made sure frontend software development at Spreetail was as great as it could be. I determined the standards and practices needed to ensure successful user interface development and facilitated adoption across projects and teams. I also helped individual developers grow their frontend development skills.',
     startDate: new Date(2017, 10, 1),
+    endDate: new Date(2018, 2, 1),
     skills: [
       'JavaScript',
       'CSS3',
@@ -73,6 +92,7 @@ const data = [
       'React',
       'Redux',
       'Rollup',
+      'ES6+',
     ],
   },
 ];
