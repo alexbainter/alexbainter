@@ -22,10 +22,6 @@ const About = () => (
         faIcon="fa-stack-overflow"
       />
       <IconLink href="https://medium.com/@metalex9" faIcon="fa-medium" />
-      <IconLink
-        href="https://www.linkedin.com/in/alexbainter/"
-        faIcon="fa-linkedin"
-      />
     </ul>
   </div>
 );
