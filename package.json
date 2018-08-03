@@ -4,7 +4,7 @@
   "description": "My personal portfolio website.",
   "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --config \"webpack/webpack.dev.config.js\"",
     "prettier": "prettier --write \"**/*.{js,jsx}\"",
     "build": "webpack-cli --mode production"
   },

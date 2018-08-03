@@ -1,8 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-  mode: 'development',
+module.exports = ({ finalStyleLoader, mode }) => ({
+  mode,
   devtool: 'source-map',
   entry: ['babel-polyfill', './src/index'],
   resolve: {
@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: [finalStyleLoader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
@@ -29,4 +29,4 @@ module.exports = {
     ],
   },
   plugins: [new HtmlWebpackPlugin({ template: './src/index.template.html' })],
-};
+});
