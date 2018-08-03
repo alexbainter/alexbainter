@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config \"webpack/webpack.dev.config.js\"",
     "prettier": "prettier --write \"**/*.{js,jsx}\"",
-    "build": "webpack-cli --mode production"
+    "build": "webpack-cli --mode production --config \"webpack/webpack.prod.config.js\""
   },
   "repository": {
     "type": "git",
