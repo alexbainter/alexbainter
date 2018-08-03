@@ -1,5 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -8,30 +8,19 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      styles: './src/styles',
+      styles: path.resolve('./src/styles'),
     },
   },
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
       {
-        test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
-      },
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-        }),
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
@@ -39,5 +28,5 @@ module.exports = {
       },
     ],
   },
-  plugins: [new ExtractTextPlugin('site.css')],
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.template.html' })],
 };
