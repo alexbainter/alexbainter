@@ -1,19 +1,14 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const { appEntry, clientDistDir, clientSrcDir } = require('./config/client');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  mode: 'development',
   devtool: 'source-map',
-  entry: ['babel-polyfill', path.resolve(appEntry)],
-  output: {
-    path: path.resolve(clientDistDir),
-    filename: 'bundle.js',
-  },
+  entry: ['babel-polyfill', './src/index'],
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      styles: path.resolve(clientSrcDir, 'styles'),
+      styles: './src/styles',
     },
   },
   module: {
@@ -24,16 +19,18 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!postcss-loader!sass-loader',
-        }),
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader!postcss-loader',
+          use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
         }),
       },
       {
