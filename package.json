@@ -2,7 +2,7 @@
   "name": "alexbainter.com",
   "version": "1.0.0",
   "description": "My personal portfolio website.",
-  "main": "server.js",
+  "main": "src/index.jsx",
   "scripts": {
     "start": "webpack-dev-server --config \"webpack/webpack.dev.config.js\"",
     "prettier": "prettier --write \"**/*.{js,jsx}\"",
