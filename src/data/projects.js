@@ -6,20 +6,9 @@ const projects = [
     linkURL: 'http://alexbainter.com',
     codeURL: 'https://github.com/metalex9/alexbainter',
     description:
-      "You're looking at it! After learning about React and Redux I was eager to build something. This is the first site I developed using the MERN stack. I wanted the site's design to be clean and minimal, but with something interesting to watch on the home page. I plan to actively update the site over time as I improve my skills.",
+      "You're looking at it! This is a static site built with React. I wanted the site's design to be clean and minimal, but with something interesting to watch on the home page. I continue to improve the site as my skills progress.",
     startDate: new Date(2017, 1, 1),
-    skills: [
-      'JavaScript',
-      'React',
-      'Redux',
-      'CSS3',
-      'Sass',
-      'Mongo',
-      'Node',
-      'Webpack',
-      'HTML5',
-      'Express',
-    ],
+    skills: ['JavaScript', 'React', 'CSS3', 'Sass', 'Webpack', 'HTML5'],
   },
   {
     name: 'Really Big Dictionary',

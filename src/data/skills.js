@@ -12,6 +12,7 @@ const skillsByRating = {
     'Karma',
     'Webpack',
     'Redux',
+    'Mocha + Chai',
   ],
   // proficient
   [ratings[2].name]: [
@@ -26,10 +27,9 @@ const skillsByRating = {
     'jQuery',
     'Node',
     'HTML5',
-    'Mocha',
-    'Chai',
     'Angular (2+)',
     'Yeoman',
+    'Express',
   ],
   // beginner
   [ratings[1].name]: [
@@ -39,9 +39,9 @@ const skillsByRating = {
     'Mongo',
     'Less',
     'Pug',
-    'Express',
     'Rollup',
     'Angular.js',
+    'Web Audio API',
   ],
   //familiar
   [ratings[0].name]: [],

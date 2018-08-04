@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --config \"webpack/webpack.dev.config.js\"",
     "prettier": "prettier --write \"**/*.{js,jsx}\"",
-    "build": "webpack-cli --mode production --config \"webpack/webpack.prod.config.js\""
+    "build": "npm run clean && webpack-cli --mode production --config \"webpack/webpack.prod.config.js\"",
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
     "node-sass": "^4.9.2",
     "postcss-loader": "^2.1.6",
     "prettier": "^1.8.2",
+    "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.13.1",
     "url-loader": "^1.0.1",

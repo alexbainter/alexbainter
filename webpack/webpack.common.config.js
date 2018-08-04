@@ -5,6 +5,9 @@ module.exports = ({ finalStyleLoader, mode }) => ({
   mode,
   devtool: 'source-map',
   entry: ['babel-polyfill', './src/index'],
+  output: {
+    filename: '[name].[hash].js',
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {

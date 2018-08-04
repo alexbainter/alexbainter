@@ -6,7 +6,7 @@ const positions = [
     company: 'Swimlane',
     linkURL: 'http://swimlane.com',
     description:
-      "I develop interfaces for Swimlane's primary software product. I also help maintain and develop our many open source projects.",
+      "I develop interfaces for Swimlane's primary software product. I also help maintain and develop our many open source projects. My accomplishments at Swimlane include reducing chart render time by 97% and reducing our app's build time by 52%.",
     startDate: new Date(2018, 2, 21),
     skills: [
       'JavaScript',
