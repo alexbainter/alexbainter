@@ -37,9 +37,4 @@ jspm_packages
 .node_repl_history
 
 # Compiled files
-client/dist
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
+dist
