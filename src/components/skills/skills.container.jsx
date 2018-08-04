@@ -1,38 +1,13 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchSkills, fetchRatings } from '../../actions';
 import { sortBy } from 'lodash';
+import skills from 'data/skills';
 import { Skills } from './skills';
-import { ifEmpty } from '../utils';
 
-class SkillsContainer extends Component {
-  componentWillMount() {
-    ifEmpty(this.props.skills)(this.props.fetchSkills);
-    ifEmpty(this.props.ratings)(this.props.fetchRatings);
-  }
+const sortedSkills = sortBy(skills, [
+  skill => -skill.rating.displayOrder,
+  'name',
+]);
 
-  render() {
-    return <Skills skills={this.props.skills} />;
-  }
+const SkillsContainer = () => <Skills skills={sortedSkills} />;
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.skills.length !== this.props.skills.length) {
-      this.setState({ visibleSkills: this.props.skills });
-    }
-  }
-}
-
-const sortSkills = skills =>
-  sortBy(skills, [skill => -skill.rating.displayOrder, 'name']);
-
-const mapStateToProps = ({ data }) => ({
-  skills: sortSkills(data.skills),
-  ratings: data.ratings,
-});
-
-const ConnectedSkillsContainer = connect(mapStateToProps, {
-  fetchSkills,
-  fetchRatings,
-})(SkillsContainer);
-
-export { ConnectedSkillsContainer as SkillsContainer };
+export default SkillsContainer;

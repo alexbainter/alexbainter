@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { sortBy } from 'lodash';
 import PropTypes from 'prop-types';
+import ratings from 'data/ratings';
 import { SkillListItem } from './skill-list-item';
 
-const SkillListItemContainer = ({ name, rating, ratings }) => (
+const sortedRatings = sortBy(data.ratings, ['displayOrder']);
+
+const SkillListItemContainer = ({ name, rating }) => (
   <div>
-    <SkillListItem name={name} rating={rating} allRatings={ratings} />
+    <SkillListItem name={name} rating={rating} allRatings={sortedRatings} />
   </div>
 );
 
@@ -15,12 +17,4 @@ SkillListItemContainer.propTypes = {
   rating: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = ({ data }) => ({
-  ratings: sortBy(data.ratings, ['displayOrder']),
-});
-
-const connectedSkillListItemContainer = connect(mapStateToProps)(
-  SkillListItemContainer
-);
-
-export { connectedSkillListItemContainer as SkillListItemContainer };
+export default SkillListItemContainer;

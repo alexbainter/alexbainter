@@ -9,6 +9,7 @@ module.exports = ({ finalStyleLoader, mode }) => ({
     extensions: ['.js', '.jsx'],
     alias: {
       styles: path.resolve('./src/styles'),
+      data: path.resolve('./src/data'),
     },
   },
   module: {
