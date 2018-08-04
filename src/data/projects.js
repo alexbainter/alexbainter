@@ -1,3 +1,5 @@
+import appendId from './append-id';
+
 const projects = [
   {
     name: 'alexbainter.com',
@@ -58,4 +60,4 @@ const projects = [
   },
 ];
 
-export default projects;
+export default appendId(projects);

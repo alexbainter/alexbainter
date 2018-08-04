@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { formatDate, stringifySkills } from '../utils';
+import formatDate from '../utils/format-date';
+import stringifySkills from '../utils/stringify-skills';
 
 const formatDateRange = (startDate, endDate) =>
   `${formatDate(startDate)} - ${endDate ? formatDate(endDate) : 'Now'}`;
@@ -31,10 +32,10 @@ Position.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   company: PropTypes.string.isRequired,
-  startDate: PropTypes.string.isRequired,
+  startDate: PropTypes.instanceOf(Date).isRequired,
   description: PropTypes.string.isRequired,
   skills: PropTypes.array.isRequired,
   linkURL: PropTypes.string.isRequired,
 };
 
-export { Position };
+export default Position;

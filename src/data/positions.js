@@ -1,3 +1,5 @@
+import appendId from './append-id';
+
 const positions = [
   {
     name: 'Frontend Software Engineer',
@@ -95,4 +97,4 @@ const positions = [
   },
 ];
 
-export default positions;
+export default appendId(positions);

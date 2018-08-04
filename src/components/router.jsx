@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { App } from './app';
-import { About } from './about';
-import { Home } from './home';
-import { Skills } from './skills';
-import { Work } from './work';
-import { NotFound } from './not-found';
+import App from './app';
+import About from './about';
+import Home from './home';
+import Skills from './skills';
+import Work from './work';
+import NotFound from './not-found';
 
 const Router = () => (
   <BrowserRouter>
@@ -21,4 +21,4 @@ const Router = () => (
   </BrowserRouter>
 );
 
-export { Router };
+export default Router;

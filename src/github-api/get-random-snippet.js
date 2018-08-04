@@ -37,4 +37,4 @@ const getRandomSnippet = () =>
     downloadFile(files[Math.floor(Math.random() * files.length)].download_url)
   );
 
-export { getRandomSnippet };
+export default getRandomSnippet;

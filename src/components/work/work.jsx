@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Position } from './position';
-import { Project } from './project';
+import Position from './position';
+import Project from './project';
 
 const makePropLengthsAreUnequal = (obj1, obj2) => propName =>
   obj1[propName].length !== obj2[propName].length;
@@ -36,4 +36,4 @@ class Work extends Component {
   }
 }
 
-export { Work };
+export default Work;

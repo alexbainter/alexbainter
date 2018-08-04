@@ -1,3 +1,5 @@
+import appendId from './append-id';
+
 const ratings = [
   {
     name: 'Familiar',
@@ -28,4 +30,4 @@ const ratings = [
   },
 ];
 
-export default ratings;
+export default appendId(ratings);

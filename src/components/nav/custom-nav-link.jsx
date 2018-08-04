@@ -20,4 +20,4 @@ CustomNavLink.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export { CustomNavLink };
+export default CustomNavLink;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconLink } from './icon-link';
+import IconLink from './icon-link';
 import 'styles/_about.scss';
 
 const About = () => (
@@ -26,4 +26,4 @@ const About = () => (
   </div>
 );
 
-export { About };
+export default About;

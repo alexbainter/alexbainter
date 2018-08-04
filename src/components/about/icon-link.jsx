@@ -14,4 +14,4 @@ IconLink.propTypes = {
   faIcon: PropTypes.string.isRequired,
 };
 
-export { IconLink };
+export default IconLink;

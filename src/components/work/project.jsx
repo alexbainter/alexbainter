@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { stringifySkills, formatDate } from '../utils';
+import formatDate from '../utils/format-date';
+import stringifySkills from '../utils/stringify-skills';
 
 const Project = ({
   _id,
@@ -29,9 +30,9 @@ Project.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   codeURL: PropTypes.string.isRequired,
-  startDate: PropTypes.string.isRequired,
+  startDate: PropTypes.instanceOf(Date).isRequired,
   description: PropTypes.string.isRequired,
   skills: PropTypes.array.isRequired,
 };
 
-export { Project };
+export default Project;

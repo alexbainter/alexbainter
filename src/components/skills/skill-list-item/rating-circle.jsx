@@ -15,4 +15,4 @@ RatingCircle.propTypes = {
   ratingDisplayOrder: PropTypes.number.isRequired,
 };
 
-export { RatingCircle };
+export default RatingCircle;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CustomNavLink } from './custom-nav-link';
+import CustomNavLink from './custom-nav-link';
 import PropTypes from 'prop-types';
 
 const SecondaryNavLink = ({ text }) => (
@@ -16,4 +16,4 @@ SecondaryNavLink.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-export { SecondaryNavLink };
+export default SecondaryNavLink;

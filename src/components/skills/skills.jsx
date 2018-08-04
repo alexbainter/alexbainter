@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { SkillListItem } from './skill-list-item';
+import SkillListItem from './skill-list-item';
 import 'styles/_skills.scss';
 
 class Skills extends Component {
   constructor(props) {
     super(props);
     this.state = { skillsInput: '', visibleSkills: this.props.skills };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.skills.length !== this.props.skills.length) {
-      this.setState({ visibleSkills: nextProps.skills });
-    }
   }
 
   render() {
@@ -60,4 +54,4 @@ Skills.propTypes = {
   skills: PropTypes.array.isRequired,
 };
 
-export { Skills };
+export default Skills;

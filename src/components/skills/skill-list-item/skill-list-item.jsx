@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { RatingCircle } from './rating-circle';
+import RatingCircle from './rating-circle';
 
 const makeRenderCircle = skillDisplayOrder => ({ displayOrder, _id }) => (
   <RatingCircle
@@ -26,4 +26,4 @@ SkillListItem.propTypes = {
   allRatings: PropTypes.array.isRequired,
 };
 
-export { SkillListItem };
+export default SkillListItem;

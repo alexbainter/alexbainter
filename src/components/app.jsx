@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav } from './nav';
+import Nav from './nav';
 import 'styles/_app.scss';
 
 const App = ({ children }) => (
@@ -9,4 +9,4 @@ const App = ({ children }) => (
   </div>
 );
 
-export { App };
+export default App;

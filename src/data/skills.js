@@ -1,10 +1,11 @@
 import ratings from './ratings';
+import appendId from './append-id';
 
 const skillsByRating = {
   // master
-  [ratings[4]]: [],
+  [ratings[4].name]: [],
   // expert
-  [ratings[3]]: [
+  [ratings[3].name]: [
     'JavaScript',
     'ES6+',
     'Knockout.js',
@@ -13,7 +14,7 @@ const skillsByRating = {
     'Redux',
   ],
   // proficient
-  [ratings[2]]: [
+  [ratings[2].name]: [
     'C#',
     'React',
     'Java',
@@ -31,7 +32,7 @@ const skillsByRating = {
     'Yeoman',
   ],
   // beginner
-  [ratings[1]]: [
+  [ratings[1].name]: [
     'SQL',
     'R',
     'Android',
@@ -43,11 +44,15 @@ const skillsByRating = {
     'Angular.js',
   ],
   //familiar
-  [ratings[0]]: [],
+  [ratings[0].name]: [],
 };
 
-const skills = Object.keys(skillsByRating).reduce((ratedSkills, rating) =>
-  ratedSkills.concat(skillsByRating[rating].map(name => ({ name, rating })))
+const skills = ratings.reduce(
+  (ratedSkills, rating) =>
+    ratedSkills.concat(
+      skillsByRating[rating.name].map(name => ({ name, rating }))
+    ),
+  []
 );
 
-export default skills;
+export default appendId(skills);

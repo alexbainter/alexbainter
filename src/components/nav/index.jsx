@@ -1,6 +1,6 @@
 import React from 'react';
-import { CustomNavLink as NavLink } from './custom-nav-link';
-import { SecondaryNavLink } from './secondary-nav-link';
+import NavLink from './custom-nav-link';
+import SecondaryNavLink from './secondary-nav-link';
 import 'styles/_nav.scss';
 
 const Nav = () => (
@@ -17,4 +17,4 @@ const Nav = () => (
   </div>
 );
 
-export { Nav };
+export default Nav;
