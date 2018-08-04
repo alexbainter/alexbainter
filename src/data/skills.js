@@ -42,6 +42,7 @@ const skillsByRating = {
     'Rollup',
     'Angular.js',
     'Web Audio API',
+    'TypeScript',
   ],
   //familiar
   [ratings[0].name]: [],

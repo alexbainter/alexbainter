@@ -17,6 +17,7 @@ const positions = [
       'Webpack',
       'Sass',
       'ES6+',
+      'TypeScript',
     ],
   },
   {
