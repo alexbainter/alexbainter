@@ -92,7 +92,6 @@ const positions = [
       'React',
       'Redux',
       'Rollup',
-      'ES6+',
       'Yeoman',
     ],
   },
