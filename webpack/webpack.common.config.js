@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = ({ finalStyleLoader, mode }) => ({
   mode,
@@ -32,5 +33,10 @@ module.exports = ({ finalStyleLoader, mode }) => ({
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: './src/index.template.html' })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: './src/index.template.html' }),
+    new CleanWebpackPlugin(['dist'], {
+      root: path.join(__dirname, '..'),
+    }),
+  ],
 });
