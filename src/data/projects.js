@@ -52,7 +52,8 @@ const projects = [
     name: 'Generative Music',
     linkURL: 'https://generativemusic.alexbainter.com',
     codeURL: 'https://github.com/generative-music/site',
-    description: '',
+    description:
+      'A collection of generative music pieces I made. Wikipedia describes generative music as, "[M]usic that is ever-different and changing, and that is created by a system." The music is created in the browser using the Web Audio API and the incredible Tone.js. The pieces will last as long as you\'re willing to listen, though no two "performances" are the same. This is the most creatively satisfying work I\'ve ever done; it\'s a wonderful intersection of making music and making software which are my two favorite things to do.',
     startDate: new Date(2018, 4, 1),
     skills: [
       'JavaScript',
