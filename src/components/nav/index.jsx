@@ -13,6 +13,7 @@ const Nav = () => (
     />
     <SecondaryNavLink text="skills" />
     <SecondaryNavLink text="work" />
+    <SecondaryNavLink text="now" />
     <SecondaryNavLink text="about" />
   </div>
 );
