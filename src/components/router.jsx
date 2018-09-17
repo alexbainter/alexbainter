@@ -5,7 +5,6 @@ import About from './about';
 import Home from './home';
 import Skills from './skills';
 import Work from './work';
-import Now from './now';
 import NotFound from './not-found';
 
 const Router = () => (
@@ -16,7 +15,6 @@ const Router = () => (
         <Route exact path="/about" component={About} />
         <Route exact path="/skills" component={Skills} />
         <Route exact path="/work" component={Work} />
-        <Route exact path="/now" component={Now} />
         <Route component={NotFound} />
       </Switch>
     </App>
