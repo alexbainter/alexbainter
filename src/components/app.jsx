@@ -5,7 +5,7 @@ import 'styles/_app.scss';
 const App = ({ children }) => (
   <div>
     <Nav />
-    <div className="content">{children}</div>
+    <main className="content">{children}</main>
   </div>
 );
 
