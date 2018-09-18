@@ -4,9 +4,12 @@
   <title>alexbainter.com</title>
   <meta name="viewport" content="width=device-width">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[0] %>" />
 </head>
 <body>
   <div class="container"></div>
+  <script type="module" src="<%= htmlWebpackPlugin.files.js.find(name => !name.includes('compat')) %>"></script>
+  <script nomodule src="<%= htmlWebpackPlugin.files.js.find(name => name.includes('compat')) %>"></script>
   <script>
   if (document.location.hostname !== 'localhost') {
   (function(i, s, o, g, r, a, m) {

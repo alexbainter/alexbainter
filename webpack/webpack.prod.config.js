@@ -18,6 +18,11 @@ config.optimization = {
   ],
 };
 
+config.entry = {
+  'main-compat': ['@babel/polyfill', './src'],
+  main: './src',
+};
+
 config.plugins.push(
   new MiniCssExtractPlugin({ filename: '[name].[hash].css' })
 );
