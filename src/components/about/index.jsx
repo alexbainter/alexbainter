@@ -1,4 +1,10 @@
 import React from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faGithub,
+  faStackOverflow,
+  faMedium,
+} from '@fortawesome/free-brands-svg-icons';
 import IconLink from './icon-link';
 import 'styles/_about.scss';
 
@@ -11,17 +17,17 @@ const About = () => (
     If you'd like to contact me, you can do so at{' '}
     <a href="mailto:alexbainter@gmail.com?Subject=Hello!">
       alexbainter@gmail.com
-    </a>.
-    <br />
+    </a>
+    .<br />
     <br />
     You can also find me at these other places:
     <ul className="link-container">
-      <IconLink href="https://github.com/metalex9" faIcon="fa-github" />
+      <IconLink href="https://github.com/metalex9" faIcon={faGithub} />
       <IconLink
         href="http://stackoverflow.com/users/1762237/metalex9?tab=profile"
-        faIcon="fa-stack-overflow"
+        faIcon={faStackOverflow}
       />
-      <IconLink href="https://medium.com/@metalex9" faIcon="fa-medium" />
+      <IconLink href="https://medium.com/@metalex9" faIcon={faMedium} />
     </ul>
   </div>
 );
