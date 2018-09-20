@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs').promises;
 const S3 = require('aws-sdk/clients/s3');
 const glob = require('glob');
-const gzip = require('gzip');
+const { gzip } = require('node-gzip');
 
 const DIST_DIR = 'dist';
 const S3_API_VERSION = '2006-03-01';
@@ -64,26 +64,34 @@ const uploadDistItems = () =>
     const allFilenames = filenames.concat(NON_DIST_FILENAMES);
     let completed = 0;
     return Promise.all(
-      allFilenames
-        .map(filename => fs.readFile(path.resolve(filename)))
-        .then(file => gzip(file))
-        .then((buffer, i) => {
-          const filename = allFilenames[i];
-          s3.upload({
-            Key: filename,
-            Body: buffer,
-            ACL: 'public-read',
-            ContentType: getContentType(key),
-            ContentEncoding: 'gzip',
+      allFilenames.map((filename, i) =>
+        fs
+          .readFile(path.resolve(filename))
+          .then(file => gzip(file))
+          .then(buffer => {
+            const filename = path.basename(allFilenames[i]);
+            const uploadParams = {
+              Key: filename,
+              Body: buffer,
+              ACL: 'public-read',
+              ContentType: getContentType(filename),
+              ContentEncoding: 'gzip',
+            };
+            if (!filename.endsWith('.html')) {
+              uploadParams.CacheControl = 'max-age=31536000';
+            }
+            s3.upload(uploadParams)
+              .promise()
+              .then(() => {
+                completed += 1;
+                console.log(
+                  `${filename} upload complete (${completed}/${
+                    allFilenames.length
+                  })`
+                );
+              });
           })
-            .promise()
-            .then(() => {
-              completed += 1;
-              console.log(
-                `${key} upload complete (${completed}/${allFilenames.length})`
-              );
-            });
-        })
+      )
     );
   });
 
