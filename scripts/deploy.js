@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs').promises;
 const S3 = require('aws-sdk/clients/s3');
 const glob = require('glob');
+const gzip = require('gzip');
 
 const DIST_DIR = 'dist';
 const S3_API_VERSION = '2006-03-01';
@@ -55,39 +56,36 @@ const getContentType = (filename = '') => {
 };
 
 const uploadDistItems = () =>
-  globPromise(`${DIST_DIR}/!(*.map)`)
-    .then(filenames => {
-      if (filenames.length === 0) {
-        console.log(`No files found in "${DIST_DIR}!"`);
-        return process.exit(0);
-      }
-      const allFilenames = filenames.concat(NON_DIST_FILENAMES);
-      return Promise.all(
-        allFilenames.map(filename => fs.readFile(path.resolve(filename)))
-      ).then(buffers =>
-        buffers.map((buffer, i) => ({
-          key: path.basename(allFilenames[i]),
-          buffer,
-        }))
-      );
-    })
-    .then(uploadItems =>
-      Promise.all(
-        uploadItems.map(({ key, buffer }) =>
-          s3
-            .upload({
-              Key: key,
-              Body: buffer,
-              ACL: 'public-read',
-              ContentType: getContentType(key),
-            })
+  globPromise(`${DIST_DIR}/!(*.map)`).then(filenames => {
+    if (filenames.length === 0) {
+      console.log(`No files found in "${DIST_DIR}!"`);
+      return process.exit(0);
+    }
+    const allFilenames = filenames.concat(NON_DIST_FILENAMES);
+    let completed = 0;
+    return Promise.all(
+      allFilenames
+        .map(filename => fs.readFile(path.resolve(filename)))
+        .then(file => gzip(file))
+        .then((buffer, i) => {
+          const filename = allFilenames[i];
+          s3.upload({
+            Key: filename,
+            Body: buffer,
+            ACL: 'public-read',
+            ContentType: getContentType(key),
+            ContentEncoding: 'gzip',
+          })
             .promise()
             .then(() => {
-              console.log(`${key} upload complete.`);
-            })
-        )
-      )
+              completed += 1;
+              console.log(
+                `${key} upload complete (${completed}/${allFilenames.length})`
+              );
+            });
+        })
     );
+  });
 
 listRootObjs()
   .then(({ Contents }) => {
