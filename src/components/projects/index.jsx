@@ -7,7 +7,6 @@ const sortedProjects = sortBy(projects, ['startDate']).reverse();
 
 const Projects = () => (
   <div>
-    <h2>Projects</h2>
     {sortedProjects.map(project => (
       <Project key={project._id} {...project} />
     ))}

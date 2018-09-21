@@ -7,7 +7,6 @@ const sortedPositions = sortBy(positions, ['startDate']).reverse();
 
 const Positions = () => (
   <div>
-    <h2>Positions</h2>
     {sortedPositions.map(position => (
       <Position key={position._id} {...position} />
     ))}
