@@ -13,6 +13,7 @@ module.exports = ({ finalStyleLoader, mode }) => ({
     alias: {
       styles: path.resolve('./src/styles'),
       data: path.resolve('./src/data'),
+      samples: path.resolve('./samples'),
     },
   },
   module: {

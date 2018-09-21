@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Headroom from 'react-headroom';
 import NavLink from './custom-nav-link';
 import SecondaryNavLink from './secondary-nav-link';
-//import MuteUnmuteButton from './mute-unmute-button';
+import MuteUnmuteButton from './mute-unmute-button';
 import 'styles/_nav.scss';
 
 class Nav extends Component {
@@ -16,7 +16,7 @@ class Nav extends Component {
     return (
       <Headroom disableInlineStyles={true}>
         <header className="nav">
-          {/* <MuteUnmuteButton /> */}
+          <MuteUnmuteButton />
           <NavLink
             to="/"
             className="nav__header"

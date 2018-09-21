@@ -22,7 +22,14 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.4",
     "@fortawesome/free-brands-svg-icons": "^5.3.1",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
     "@fortawesome/react-fontawesome": "^0.1.3",
+    "@generative-music/instrument-tonejs": "^0.1.0",
+    "@generative-music/piece-aisatsana": "^0.1.0",
+    "@generative-music/piece-eno-machine": "^0.1.1",
+    "@generative-music/piece-pinwheels": "^0.1.1",
+    "@generative-music/piece-sevenths": "^0.1.1",
+    "@generative-music/time-tonejs": "^1.0.0",
     "array-flatten": "^2.1.1",
     "axios": "^0.15.3",
     "dateformat": "^2.0.0",
@@ -34,7 +41,9 @@
     "react-dom": "^16.1.1",
     "react-headroom": "^2.2.2",
     "react-router-dom": "^4.2.2",
-    "react-timeout": "^1.0.1"
+    "react-timeout": "^1.0.1",
+    "startaudiocontext": "^1.2.1",
+    "tone": "^0.12.80"
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",

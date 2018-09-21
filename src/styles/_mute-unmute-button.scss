@@ -13,6 +13,10 @@
     background: #ccc;
   }
 
+  &:focus {
+    outline: none;
+  }
+
   .icon--active {
     color: #bbb;
   }
