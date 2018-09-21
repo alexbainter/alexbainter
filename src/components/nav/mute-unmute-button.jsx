@@ -9,6 +9,8 @@ import enoMachine from '@generative-music/piece-eno-machine';
 import sevenths from '@generative-music/piece-sevenths';
 import pinwheels from '@generative-music/piece-pinwheels';
 import startAudioContext from 'startaudiocontext';
+import { withRouter } from 'react-router';
+
 import samples from 'samples/samples.json';
 import 'styles/_mute-unmute-button.scss';
 
@@ -33,19 +35,42 @@ const pianoSamplerConfigPromise = Promise.all(
   }, {})
 );
 
+let volumes = [];
+
 class MuteUnmuteButton extends Component {
   constructor(props) {
     super(props);
-    this.volumes = [];
+    volumes = [];
     pianoSamplerConfigPromise.then(samplerConfig => {
-      this.volumes = pieces.map(piece => {
+      volumes = pieces.map(piece => {
         const volume = new Tone.Volume({ volume: -100, mute: true }).toMaster();
         const piano = new Tone.Sampler(samplerConfig).connect(volume);
         const instruments = [makeInstrument({ toneInstrument: piano })];
         piece({ instruments, time });
         return volume;
       });
-      this.setState({ ready: true });
+      const unassignedVolumes = [...volumes];
+      const pathVolumes = new Map();
+      const assignVolumeForPath = pathname => {
+        const index = Math.floor(Math.random() * unassignedVolumes.length);
+        const volume = unassignedVolumes[index];
+        unassignedVolumes.splice(index, 1);
+        pathVolumes.set(pathname, volume);
+        return volume;
+      };
+      props.history.listen(({ pathname }) => {
+        let volume;
+        if (pathVolumes.has(pathname)) {
+          volume = pathVolumes.get(pathname);
+        } else {
+          volume = assignVolumeForPath(pathname);
+        }
+        this.setState({ volume }, () => this.setVolumeLevels());
+      });
+      this.setState({
+        ready: true,
+        volume: assignVolumeForPath(props.location.pathname),
+      });
     });
     startAudioContext(Tone.context, `.${className}`).then(() => {
       Tone.Transport.start();
@@ -77,17 +102,18 @@ class MuteUnmuteButton extends Component {
     );
   }
   handleMuteClick() {
-    if (!this.state.muted) {
-      this.state.volume.volume.linearRampTo(-100, 1);
+    this.setState({ muted: !this.state.muted }, () => this.setVolumeLevels());
+  }
+  setVolumeLevels() {
+    let volumesToMute;
+    if (this.state.muted) {
+      volumesToMute = volumes;
     } else {
-      const volume = this.volumes[
-        Math.floor(Math.random() * this.volumes.length)
-      ];
-      volume.volume.linearRampTo(0, 1);
-      this.setState({ volume });
+      volumesToMute = volumes.filter(volume => volume !== this.state.volume);
+      this.state.volume.volume.linearRampTo(0, 1);
     }
-    this.setState({ muted: !this.state.muted });
+    volumesToMute.forEach(volume => volume.volume.linearRampTo(-100, 1));
   }
 }
 
-export default MuteUnmuteButton;
+export default withRouter(MuteUnmuteButton);
