@@ -28,7 +28,7 @@ const s3 = new S3({
   params: { Bucket: BUCKET_NAME },
 });
 
-const listRootObjs = () => s3.listObjectsV2().promise();
+const listRootObjs = () => s3.listObjectsV2({ Delimiter: '/' }).promise();
 
 const deleteObjs = objs =>
   Array.isArray(objs) && objs.length > 1
