@@ -5,6 +5,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = ({ finalStyleLoader, mode }) => ({
   mode,
   devtool: 'source-map',
+  entry: ['@babel/polyfill', './src'],
   output: {
     filename: '[name].[hash].js',
   },
@@ -43,7 +44,6 @@ module.exports = ({ finalStyleLoader, mode }) => ({
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.template.html',
-      inject: false,
     }),
     new CleanWebpackPlugin(['dist'], {
       root: path.join(__dirname, '..'),
