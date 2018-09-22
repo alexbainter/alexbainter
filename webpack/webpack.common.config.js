@@ -20,7 +20,14 @@ module.exports = ({ finalStyleLoader, mode }) => ({
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, '../src'),
+          path.resolve(__dirname, '../samples'),
+          path.resolve(__dirname, '../node_modules/@generative-music'),
+          path.resolve(__dirname, '../node_modules/markov-chains'),
+          path.resolve(__dirname, '../node_modules/tonal'),
+          path.resolve(__dirname, '../node_modules/pick-random'),
+        ],
         use: 'babel-loader',
       },
       {
