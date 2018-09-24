@@ -1,7 +1,7 @@
 import fileExtension from 'file-extension';
 import axios from 'axios';
 import flatten from 'array-flatten';
-import { memoize as mem } from 'lodash';
+import mem from 'lodash/memoize';
 
 const acceptedFileTypes = ['js', 'html', 'scss', 'jsx'];
 
