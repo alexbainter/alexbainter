@@ -9,7 +9,7 @@ import enoMachine from '@generative-music/piece-eno-machine';
 import sevenths from '@generative-music/piece-sevenths';
 import pinwheels from '@generative-music/piece-pinwheels';
 import startAudioContext from 'startaudiocontext';
-import { withRouter } from 'react-router';
+import withRouter from 'react-router/withRouter';
 
 import samples from 'samples/samples.json';
 import 'styles/_mute-unmute-button.scss';
