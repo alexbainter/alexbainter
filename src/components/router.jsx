@@ -1,13 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import App from '../app';
+import App from './app';
 import dynamicallyLoaded from './dynamically-loaded';
 
-const About = dynamicallyLoaded(import('../about'));
-const Home = dynamicallyLoaded(import('../home'));
-const Positions = dynamicallyLoaded(import('../positions'));
-const Projects = dynamicallyLoaded(import('../projects'));
-const NotFound = dynamicallyLoaded(import('../not-found'));
+const makeDynamicallyLoadedRoute = componentModulePromise =>
+  dynamicallyLoaded(componentModulePromise, <div>...</div>);
+
+const About = makeDynamicallyLoadedRoute(import('./about'));
+const Home = makeDynamicallyLoadedRoute(import('./home'));
+const Positions = makeDynamicallyLoadedRoute(import('./positions'));
+const Projects = makeDynamicallyLoadedRoute(import('./projects'));
+const NotFound = makeDynamicallyLoadedRoute(import('./not-found'));
 
 const Router = () => (
   <BrowserRouter>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const dynamicallyLoaded = componentModulePromise =>
+const dynamicallyLoaded = (componentModulePromise, loadingPlaceholder = null) =>
   class DynamicallyLoadedComponent extends Component {
     constructor(props) {
       super(props);
@@ -12,7 +12,7 @@ const dynamicallyLoaded = componentModulePromise =>
 
     render() {
       const { LoadedComponent } = this.state;
-      return LoadedComponent ? <LoadedComponent /> : <div>...</div>;
+      return LoadedComponent ? <LoadedComponent /> : loadingPlaceholder;
     }
   };
 

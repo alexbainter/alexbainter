@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Headroom from 'react-headroom';
 import NavLink from './custom-nav-link';
 import SecondaryNavLink from './secondary-nav-link';
-import MuteUnmuteButton from './mute-unmute-button';
+import dynamicallyLoaded from '../dynamically-loaded';
 import 'styles/_nav.scss';
+
+const MuteUnmuteButton = dynamicallyLoaded(import('./mute-unmute-button'));
 
 class Nav extends Component {
   constructor(props) {
