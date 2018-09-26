@@ -8,7 +8,7 @@ const { gzip } = require('node-gzip');
 
 const DIST_DIR = 'dist';
 const S3_API_VERSION = '2006-03-01';
-const BUCKET_NAME = 'alexbainter.com';
+const BUCKET_NAME = 'alexbainter2';
 
 const NON_DIST_FILENAMES = ['favicon.ico'];
 
