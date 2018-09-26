@@ -1,13 +1,15 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const makeBabelConfiguration = require('./babel/make-babel-config');
 
-module.exports = ({ finalStyleLoader, mode }) => ({
+module.exports = ({ finalStyleLoader, mode, esmodules = true }) => ({
   mode,
   devtool: 'source-map',
-  entry: ['@babel/polyfill', './src'],
+  entry: esmodules ? './src' : ['@babel/polyfill', './src'],
   output: {
-    filename: '[name].[hash].js',
+    filename: esmodules ? '[name].js' : '[name].compat.js',
+    chunkFilename: esmodules ? '[id].[contenthash].js' : '[id].[contenthash].compat.js'
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -29,7 +31,10 @@ module.exports = ({ finalStyleLoader, mode }) => ({
           path.resolve(__dirname, '../node_modules/tonal'),
           path.resolve(__dirname, '../node_modules/pick-random'),
         ],
-        use: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+          options: makeBabelConfiguration(esmodules),
+        },
       },
       {
         test: /\.s?css$/,
@@ -44,6 +49,8 @@ module.exports = ({ finalStyleLoader, mode }) => ({
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.template.html',
+      hash: true,
+      inject: false,
     }),
     new CleanWebpackPlugin(['dist'], {
       root: path.join(__dirname, '..'),

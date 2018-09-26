@@ -3,23 +3,19 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const commonConfig = require('./webpack.common.config');
 
-const config = commonConfig({
-  finalStyleLoader: MiniCssExtractPlugin.loader,
-  mode: 'production',
-});
+const productionConfig = esmodules => {
+  const config = commonConfig({
+    finalStyleLoader: MiniCssExtractPlugin.loader,
+    mode: 'production',
+    esmodules,
+  });
+  config.optimization = {
+    minimizer: [new OptimizeCssAssetsPlugin({})],
+  };
 
-config.optimization = {
-  minimizer: [
-    new UglifyJsPlugin({
-      cache: true,
-      parallel: true,
-    }),
-    new OptimizeCssAssetsPlugin({}),
-  ],
+  config.plugins.push(new MiniCssExtractPlugin({ filename: '[name].css' }));
+
+  return config;
 };
 
-config.plugins.push(
-  new MiniCssExtractPlugin({ filename: '[name].[hash].css' })
-);
-
-module.exports = config;
+module.exports = [productionConfig(true), productionConfig(false)];
