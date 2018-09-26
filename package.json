@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config \"webpack/webpack.dev.config.js\"",
     "prettier": "prettier --write \"**/*.{js,jsx}\"",
-    "build": "webpack-cli --mode production --config \"webpack/webpack.prod.config.js\"",
+    "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack-cli --mode production --config \"webpack/webpack.prod.config.js\"",
     "deploy": "npm run build && node scripts/deploy.js"
   },
   "repository": {

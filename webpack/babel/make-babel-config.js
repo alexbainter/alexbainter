@@ -16,7 +16,7 @@ module.exports = esmodules => ({
   ],
   env: {
     production: {
-      presets: ['minify'],
+      presets: [['minify', { builtIns: false }]],
     },
   },
 });
