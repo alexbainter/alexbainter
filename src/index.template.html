@@ -4,7 +4,6 @@
   <title>alexbainter.com</title>
   <meta name="viewport" content="width=device-width">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="<%= `main.css?${htmlWebpackPlugin.files.chunks.main.hash}` %>"
 </head>
 <body>
   <div class="container"></div>
@@ -33,7 +32,5 @@
   ga('send', 'pageview');
 }
 </script>
-<script nomodule type="text/javascript" src="<%= `main.compat.js?${htmlWebpackPlugin.files.chunks.main.hash}` %>"></script>
-<script type="module" src="<%= `main.js?${htmlWebpackPlugin.files.chunks.main.hash}` %>"></script>
 </body>
 </html>
