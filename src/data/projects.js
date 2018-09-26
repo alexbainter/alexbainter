@@ -6,7 +6,7 @@ const projects = [
     linkURL: 'http://alexbainter.com',
     codeURL: 'https://github.com/metalex9/alexbainter',
     description:
-      "You're looking at it! This is a static site built with React and hosted on AWS. I wanted the site's design to be clean and minimal, but with something interesting to watch on the home page. I consider the site an ongoing project and I try to update it frequently. Since the original launch, I've reduced its recurring hosting costs by 90%.",
+      "You're looking at it! This is a static site built with React and hosted on AWS. I wanted the site's design to be clean and minimal, but with something interesting to watch on the home page. I consider the site an ongoing project and I try to update it frequently. Since the original launch, I've reduced its recurring hosting costs by 96%.",
     startDate: new Date(2017, 1, 1),
     skills: ['JavaScript', 'React', 'CSS3', 'Sass', 'Webpack', 'HTML5', 'ES6+'],
   },
