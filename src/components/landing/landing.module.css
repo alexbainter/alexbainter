@@ -1,0 +1,17 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 10s;
+}
+
+.content {
+  color: #fafafa;
+  margin: 0 2em;
+}
+
+.font-weight-normal {
+  font-weight: normal;
+}
