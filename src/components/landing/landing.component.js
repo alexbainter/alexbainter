@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'gatsby';
 import colors from 'material-colors';
 import colorConvert from 'color-convert';
 import landingStyles from './landing.module.css';
 
+const BG_LUMINENCE_THRESHOLD = 0.5;
+
 // https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
-const isColorBgForWhiteText = colorHex => {
+const getLuminence = colorHex => {
   const rgb = colorConvert.hex.rgb(colorHex);
   const [r, g, b] = rgb.map(x => {
     const pct = x / 255;
     return pct <= 0.03928 ? pct / 12.92 : ((pct + 0.055) / 1.055) ** 2.4;
   });
-  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  return luminance <= 0.179;
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
 };
+
+const isSufficientlyLight = colorHex =>
+  getLuminence(colorHex) > BG_LUMINENCE_THRESHOLD;
 
 const backgroundColors = Reflect.ownKeys(colors)
   .filter(color => typeof colors[color] === 'object')
@@ -28,7 +33,7 @@ const backgroundColors = Reflect.ownKeys(colors)
       ),
     []
   )
-  .filter(colorHex => isColorBgForWhiteText(colorHex));
+  .filter(colorHex => isSufficientlyLight(colorHex));
 
 const getRandomColor = previousColor => {
   const newColors =
@@ -45,8 +50,8 @@ const Landing = () => {
       setBgColor(currentBgColor => getRandomColor(currentBgColor));
       setInterval(() => {
         setBgColor(currentBgColor => getRandomColor(currentBgColor));
-      }, 15000);
-    }, 5000);
+      }, 20000);
+    }, 10000);
   }, []);
   return (
     <div
@@ -56,8 +61,24 @@ const Landing = () => {
       <div className={landingStyles.content}>
         <h1 className={landingStyles.fontWeightNormal}>Alex Bainter</h1>
         <h3 className={landingStyles.fontWeightNormal}>
-          Hi, I'm Alex. I'm a web developer who likes to create audio/visual
-          experiences both digital and not.
+          <p>
+            Hi, I'm Alex. I'm a web developer who likes to create audio/visual
+            experiences both digital and not.
+          </p>
+          <p>
+            You can scroll down to see some of my work. Or you could check out{' '}
+            <a href="https://medium.com/@metalex9" target="_blank">
+              stuff I've posted on Medium.
+            </a>
+          </p>
+          <p>
+            Send me an email at{' '}
+            <a href={`mailto:alex@alexbainter.com?subject="Hi"`}>
+              alex@alexbainter.com
+            </a>{' '}
+            if you have feedback, or you'd like to work together, or just to say
+            'hi.'
+          </p>
         </h3>
       </div>
     </div>
