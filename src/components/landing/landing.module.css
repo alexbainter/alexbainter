@@ -1,10 +1,10 @@
 .container {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 10s;
+  background-color: transparent;
 }
 
 .content {

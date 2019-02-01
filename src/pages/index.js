@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import ColoredContainer from '../components/colored-container/colored-container';
 import SEO from '../components/seo';
 import Landing from '../components/landing/landing.component';
+import Project from '../components/project/project';
 
 const IndexPage = () => (
-  <div>
+  <ColoredContainer>
     <SEO title="Hello" keywords={['alex bainter']} />
     <Landing />
-  </div>
+    <Project />
+  </ColoredContainer>
 );
 
 export default IndexPage;
