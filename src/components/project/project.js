@@ -3,21 +3,30 @@ import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import projectStyles from './project.module.css';
 
+const query = graphql`
+  query {
+    screenshot: file(relativePath: { eq: "blossom-screenshot.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    icon: file(relativePath: { eq: "blossom-icon.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
 const Project = () => (
   <div className={projectStyles.container}>
     <div className={projectStyles.screenshot}>
       <StaticQuery
-        query={graphql`
-          query {
-            screenshot: file(relativePath: { eq: "blossom-screenshot.png" }) {
-              childImageSharp {
-                fluid(maxWidth: 300) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        `}
+        query={query}
         render={data => (
           <a href="https://blossom.alexbainter.com">
             <Img fluid={data.screenshot.childImageSharp.fluid} />
@@ -28,17 +37,7 @@ const Project = () => (
     <h1 className={projectStyles.title}>
       <span className={projectStyles.icon}>
         <StaticQuery
-          query={graphql`
-            query {
-              icon: file(relativePath: { eq: "blossom-icon.png" }) {
-                childImageSharp {
-                  fluid(maxWidth: 300) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          `}
+          query={query}
           render={data => <Img fluid={data.icon.childImageSharp.fluid} />}
         />
       </span>
