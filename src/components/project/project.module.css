@@ -1,6 +1,43 @@
 .container {
   background: white;
-  height: 20px;
-  width: 100%;
-  margin-bottom: 30px;
+  max-width: 100vw;
+  padding: 2em;
+  overflow: auto;
+  margin-bottom: 3em;
+}
+
+.container h2,
+h1 {
+  font-weight: normal;
+}
+
+.container a {
+  color: black;
+}
+
+.icon {
+  min-height: 1em;
+  min-width: 1em;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.screenshot {
+  float: right;
+  border: 1px solid black;
+  margin: 1em;
+  max-width: 25em;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+.description {
+  font-size: 1.25em;
+}
+
+.title {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0;
 }

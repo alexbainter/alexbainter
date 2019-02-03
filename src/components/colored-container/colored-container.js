@@ -3,7 +3,7 @@ import colors from 'material-colors';
 import colorConvert from 'color-convert';
 import coloredContainerStyles from './colored-container.module.css';
 
-const BG_LUMINENCE_THRESHOLD = 0.5;
+const BG_LUMINENCE_THRESHOLD = 0.6;
 
 // https://stackoverflow.com/questions/3942878/how-to-decide-font-color-in-white-or-black-depending-on-background-color
 const getLuminence = colorHex => {

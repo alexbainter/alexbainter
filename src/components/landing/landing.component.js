@@ -21,9 +21,8 @@ const Landing = () => (
           Send me an email at{' '}
           <a href={`mailto:alex@alexbainter.com?subject="Hi"`}>
             alex@alexbainter.com
-          </a>{' '}
-          if you have feedback, or you'd like to work together, or just to say
-          'hi.'
+          </a>
+          .
         </p>
       </h3>
     </div>
