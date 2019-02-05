@@ -19,4 +19,4 @@ You will need to install the following before you can run the site locally:
 1. Navigate to directory where you cloned/downloaded the repository.
 1. Run `npm install` from a command prompt.
 1. Run `npm start` from a command prompt.
-1. Navigate to http://localhost:8080 to view the site.
+1. Navigate to http://localhost:8000 to view the site.
