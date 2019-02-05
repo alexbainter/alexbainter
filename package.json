@@ -31,10 +31,13 @@
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "prod": "gatsby build && gatsby serve",
-    "deploy": "gatsby-plugin-s3 deploy"
+    "deploy": "gatsby build && node node_scripts/deploy.js"
   },
   "devDependencies": {
-    "gatsby-plugin-s3": "^0.2.2",
+    "aws-sdk": "^2.396.0",
+    "glob": "^7.1.3",
+    "mime-types": "^2.1.21",
+    "node-gzip": "^1.1.2",
     "prettier": "^1.15.2"
   },
   "repository": {

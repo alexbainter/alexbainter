@@ -1,5 +1,3 @@
-const { bucketName } = require('./secrets');
-
 module.exports = {
   siteMetadata: {
     title: `Alex Bainter`,
@@ -27,12 +25,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/site-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-s3',
-      options: {
-        bucketName,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
