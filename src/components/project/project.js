@@ -60,9 +60,7 @@ const Project = ({
           </span>
           {title}
         </h1>
-        <h2>
-          <i>{tagLine}</i>
-        </h2>
+        <h2 className={projectStyles.tagLine}>{tagLine}</h2>
         <p>{description}</p>
         <p>
           <a href={siteUrl}>Site</a> | <a href={sourceUrl}>Source Code</a>
