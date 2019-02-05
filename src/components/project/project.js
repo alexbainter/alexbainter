@@ -3,62 +3,71 @@ import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import projectStyles from './project.module.css';
 
-const query = graphql`
+const imageQuery = graphql`
   query {
-    screenshot: file(relativePath: { eq: "blossom-screenshot.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+    blossomIcon: file(relativePath: { eq: "blossom-icon.png" }) {
+      ...iconImage
     }
-    icon: file(relativePath: { eq: "blossom-icon.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+
+    blossomScreenshot: file(relativePath: { eq: "blossom-screenshot.png" }) {
+      ...screenshotImage
+    }
+
+    generativeMusicIcon: file(
+      relativePath: { eq: "generative-music-icon.png" }
+    ) {
+      ...iconImage
+    }
+
+    generativeMusicScreenshot: file(
+      relativePath: { eq: "generative-music-screenshot.png" }
+    ) {
+      ...screenshotImage
     }
   }
 `;
 
-const Project = () => (
+const Project = ({
+  id,
+  title,
+  tagLine,
+  siteUrl,
+  sourceUrl,
+  description,
+  query,
+}) => (
   <div className={projectStyles.container}>
-    <div className={projectStyles.screenshot}>
-      <StaticQuery
-        query={query}
-        render={data => (
-          <a href="https://blossom.alexbainter.com">
-            <Img fluid={data.screenshot.childImageSharp.fluid} />
-          </a>
-        )}
-      />
-    </div>
-    <h1 className={projectStyles.title}>
-      <span className={projectStyles.icon}>
+    <div className={projectStyles.innerContainer}>
+      <div className={projectStyles.screenshot}>
         <StaticQuery
-          query={query}
-          render={data => <Img fluid={data.icon.childImageSharp.fluid} />}
+          query={imageQuery}
+          render={data => (
+            <a href={siteUrl}>
+              <Img fluid={data[`${id}Screenshot`].childImageSharp.fluid} />
+            </a>
+          )}
         />
-      </span>
-      Blossom
-    </h1>
-    <h2>
-      <i>A lovely interactive music generator</i>
-    </h2>
-    <div className={projectStyles.description}>
-      <p>
-        Much like its obvious inspiration "Bloom", the terrific iPhone app by
-        Brian Eno and Peter Chilvers, Blossom allows you to click or tap to
-        create an ever-evolving music and color experience. It enables anyone to
-        create beautiful ambient music inside their browser. Also inlcuded is an
-        endless self-playing functionality, with which one can either play along
-        or simply watch and enjoy.
-      </p>
-      <p>
-        <a href="https://blossom.alexbainter.com">site</a> |{' '}
-        <a href="https://github.com/generative-music/blossom">source code</a>
-      </p>
+      </div>
+      <div className={projectStyles.text}>
+        <h1 className={projectStyles.title}>
+          <span className={projectStyles.icon}>
+            <StaticQuery
+              query={imageQuery}
+              render={data => (
+                <Img fluid={data[`${id}Icon`].childImageSharp.fluid} />
+              )}
+            />
+          </span>
+          {title}
+        </h1>
+        <h2>
+          <i>{tagLine}</i>
+        </h2>
+        <p>{description}</p>
+        <p>
+          <a href={siteUrl}>Site</a> | <a href={sourceUrl}>Source Code</a>
+        </p>
+      </div>
     </div>
   </div>
 );
