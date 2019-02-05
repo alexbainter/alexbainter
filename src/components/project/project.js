@@ -27,46 +27,33 @@ const imageQuery = graphql`
   }
 `;
 
-const Project = ({
-  id,
-  title,
-  tagLine,
-  siteUrl,
-  sourceUrl,
-  description,
-  query,
-}) => (
+const Project = ({ id, title, tagLine, siteUrl, sourceUrl, description }) => (
   <div className={projectStyles.container}>
-    <div className={projectStyles.innerContainer}>
-      <div className={projectStyles.screenshot}>
-        <StaticQuery
-          query={imageQuery}
-          render={data => (
+    <StaticQuery
+      query={imageQuery}
+      render={data => (
+        <div className={projectStyles.innerContainer}>
+          <div className={projectStyles.screenshot}>
             <a href={siteUrl}>
               <Img fluid={data[`${id}Screenshot`].childImageSharp.fluid} />
             </a>
-          )}
-        />
-      </div>
-      <div className={projectStyles.text}>
-        <h1 className={projectStyles.title}>
-          <span className={projectStyles.icon}>
-            <StaticQuery
-              query={imageQuery}
-              render={data => (
+          </div>
+          <div className={projectStyles.text}>
+            <h1 className={projectStyles.title}>
+              <span className={projectStyles.icon}>
                 <Img fluid={data[`${id}Icon`].childImageSharp.fluid} />
-              )}
-            />
-          </span>
-          {title}
-        </h1>
-        <h2 className={projectStyles.tagLine}>{tagLine}</h2>
-        <p>{description}</p>
-        <p>
-          <a href={siteUrl}>Site</a> | <a href={sourceUrl}>Source Code</a>
-        </p>
-      </div>
-    </div>
+              </span>
+              {title}
+            </h1>
+            <h2 className={projectStyles.tagLine}>{tagLine}</h2>
+            <p>{description}</p>
+            <p>
+              <a href={siteUrl}>Site</a> | <a href={sourceUrl}>Source Code</a>
+            </p>
+          </div>
+        </div>
+      )}
+    />
   </div>
 );
 
