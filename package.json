@@ -30,9 +30,11 @@
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
-    "prod": "gatsby build && gatsby serve"
+    "prod": "gatsby build && gatsby serve",
+    "deploy": "gatsby-plugin-s3 deploy"
   },
   "devDependencies": {
+    "gatsby-plugin-s3": "^0.2.2",
     "prettier": "^1.15.2"
   },
   "repository": {
