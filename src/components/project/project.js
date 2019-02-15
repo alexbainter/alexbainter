@@ -13,14 +13,12 @@ const imageQuery = graphql`
       ...screenshotImage
     }
 
-    generativeMusicIcon: file(
-      relativePath: { eq: "generative-music-icon.png" }
-    ) {
+    generativeFmIcon: file(relativePath: { eq: "generative-fm-icon.png" }) {
       ...iconImage
     }
 
-    generativeMusicScreenshot: file(
-      relativePath: { eq: "generative-music-screenshot.png" }
+    generativeFmScreenshot: file(
+      relativePath: { eq: "generative-fm-screenshot.png" }
     ) {
       ...screenshotImage
     }

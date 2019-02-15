@@ -1,5 +1,5 @@
 const blossom = require('./blossom');
-const generativeMusic = require('./generative-music');
+const generativeMusic = require('./generative-fm');
 
 const ORDER_PROP_NAME = 'order';
 
