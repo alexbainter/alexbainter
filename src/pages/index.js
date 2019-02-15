@@ -6,18 +6,15 @@ import Landing from '../components/landing/landing.component';
 import Project from '../components/project/project';
 import projects from '../data/projects/index';
 
-const IndexPage = data => {
-  console.log(data);
-  return (
-    <ColoredContainer>
-      <SEO title="Hello" keywords={['alex bainter']} />
-      <Landing />
-      {projects.map(project => (
-        <Project {...project} key={project.id} />
-      ))}
-    </ColoredContainer>
-  );
-};
+const IndexPage = () => (
+  <ColoredContainer>
+    <SEO title="Hello" keywords={['alex bainter']} />
+    <Landing />
+    {projects.map(project => (
+      <Project {...project} key={project.id} />
+    ))}
+  </ColoredContainer>
+);
 
 export const iconImage = graphql`
   fragment iconImage on File {

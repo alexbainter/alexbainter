@@ -27,3 +27,14 @@
 .content a {
   color: black;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0.5em;
+  transition: opacity 500ms linear;
+}
