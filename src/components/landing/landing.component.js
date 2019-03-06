@@ -34,7 +34,10 @@ const Landing = () => {
             <a href={`mailto:alex@alexbainter.com?subject="Hi"`}>
               alex@alexbainter.com
             </a>
-            .
+            . Tweet at @
+            <a href="https://twitter.com/alex_bainter" target="_blank">
+              alex_bainter
+            </a>
           </p>
         </h3>
       </div>
