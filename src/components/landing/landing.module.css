@@ -17,14 +17,24 @@
 
 .content h1 {
   font-size: 3em;
+  margin: 0.5em 0;
 }
 
 .content h3 {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .content a {
   color: black;
+}
+
+.links {
+  list-style: none;
+  padding-left: 0;
+}
+
+.linkItem {
+  margin: 0.5em 0;
 }
 
 .footer {
@@ -41,5 +51,9 @@
 @media (min-width: 768px) {
   .container {
     align-items: center;
+  }
+
+  .container h3 {
+    font-size: 1.5em;
   }
 }

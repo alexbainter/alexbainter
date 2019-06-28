@@ -23,22 +23,44 @@ const Landing = () => {
             Hi, I'm Alex. I'm a web developer who likes to create audio/visual
             experiences both digital and not.
           </p>
-          <p>
-            Scroll down to see some of my work. Or you could check out{' '}
-            <a href="https://medium.com/@metalex9" target="_blank">
-              stuff I've posted on Medium.
-            </a>
-          </p>
-          <p>
-            Send me an email at{' '}
-            <a href={`mailto:alex@alexbainter.com?subject="Hi"`}>
-              alex@alexbainter.com
-            </a>
-            . Tweet at @
-            <a href="https://twitter.com/alex_bainter" target="_blank">
-              alex_bainter
-            </a>
-          </p>
+          <p>Scroll down to see some of my work.</p>
+
+          <ul className={landingStyles.links}>
+            <li className={landingStyles.linkItem}>
+              <a href="https://medium.com/@metalex9" target="_blank">
+                Medium
+              </a>
+            </li>
+            <li className={landingStyles.linkItem}>
+              @
+              <a href="https://twitter.com/alex_bainter" target="_blank">
+                alex_bainter
+              </a>{' '}
+              (Twitter)
+            </li>
+            <li className={landingStyles.linkItem}>
+              @
+              <a href="https://www.instagram.com/alex.bainter/" target="_blank">
+                alex.bainter
+              </a>{' '}
+              (Instagram)
+            </li>
+            <li className={landingStyles.linkItem}>
+              <a href="https://tinyletter.com/alexbainter" target="_blank">
+                Newsletter
+              </a>
+            </li>
+            <li className={landingStyles.linkItem}>
+              <a href={`mailto:alex@alexbainter.com?subject="Hi"`}>
+                alex@alexbainter.com
+              </a>
+            </li>
+            <li className={landingStyles.linkItem}>
+              <a href="https://www.patreon.com/alexbainter" target="_blank">
+                Patreon
+              </a>
+            </li>
+          </ul>
         </h3>
       </div>
       <div
