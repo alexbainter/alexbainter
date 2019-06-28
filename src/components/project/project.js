@@ -22,6 +22,18 @@ const imageQuery = graphql`
     ) {
       ...screenshotImage
     }
+
+    corruptionLoopsIcon: file(
+      relativePath: { eq: "corruption-loops-icon.png" }
+    ) {
+      ...iconImage
+    }
+
+    corruptionLoopsScreenshot: file(
+      relativePath: { eq: "corruption-loops-screenshot.png" }
+    ) {
+      ...screenshotImage
+    }
   }
 `;
 

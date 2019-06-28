@@ -10,5 +10,5 @@ module.exports = {
     to create beautiful ambient music inside their browser. Also inlcuded
     is an endless self-playing functionality, with which one can either
     play along or simply watch and enjoy.`,
-  order: 2,
+  order: 3,
 };
