@@ -1,6 +1,6 @@
 # alexbainter
 
-This is my personal portfolio/online-resume website built with Gatsby.
+This is my personal portfolio for creative projects, built with Gatsby.
 
 You should be able to view the live site at
 [alexbainter.com](http://alexbainter.com).
