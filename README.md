@@ -1,6 +1,6 @@
 # alexbainter
 
-This is my personal portfolio/online-resume website built with React.
+This is my personal portfolio/online-resume website built with Gatsby.
 
 You should be able to view the live site at
 [alexbainter.com](http://alexbainter.com).
