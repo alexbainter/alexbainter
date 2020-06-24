@@ -1,4 +1,5 @@
 .colored-container {
   transition: background-color 10s;
   padding-bottom: 1px;
+  height: 100%;
 }
