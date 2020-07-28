@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Link } from 'gatsby';
 import landingStyles from './landing.module.css';
 
 const Landing = ({ title, children, scrollDownPrompt = false }) => {
@@ -11,11 +10,16 @@ const Landing = ({ title, children, scrollDownPrompt = false }) => {
       setIsScrollHintVisible(false);
       window.removeEventListener('scroll', onScroll);
     }
-  });
+  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', onScroll);
-  }, []);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [onScroll]);
+
   return (
     <div className={landingStyles.container}>
       <div className={landingStyles.content}>

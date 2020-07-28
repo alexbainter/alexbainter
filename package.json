@@ -32,13 +32,11 @@
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "prod": "gatsby build && gatsby serve",
-    "deploy": "gatsby build && node node_scripts/deploy.js"
+    "deploy": "gatsby build && node -r dotenv/config node_modules/.bin/s3-sync deploy"
   },
   "devDependencies": {
-    "aws-sdk": "^2.703.0",
-    "glob": "^7.1.6",
-    "mime-types": "^2.1.27",
-    "node-gzip": "^1.1.2",
+    "@alexbainter/s3-sync": "^0.1.4",
+    "dotenv": "^8.2.0",
     "prettier": "^1.19.1"
   },
   "repository": {

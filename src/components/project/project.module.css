@@ -13,6 +13,17 @@ h1 {
 
 .container a {
   color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  background-image: linear-gradient(to right, transparent 50%, black 50%);
+  background-size: 200% 100%;
+  transition: background-position 200ms, color 200ms;
+}
+
+.container a:hover {
+  background-position: -100% 0;
+  color: white;
+  border-bottom: none;
 }
 
 .icon {

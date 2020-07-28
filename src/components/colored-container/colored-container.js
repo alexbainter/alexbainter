@@ -45,12 +45,20 @@ const getRandomColor = previousColor => {
 const ColoredContainer = ({ children }) => {
   const [bgColor, setBgColor] = useState(getRandomColor());
   useEffect(() => {
-    setTimeout(() => {
+    let interval;
+    const timeout = setTimeout(() => {
       setBgColor(currentBgColor => getRandomColor(currentBgColor));
-      setInterval(() => {
+      interval = setInterval(() => {
         setBgColor(currentBgColor => getRandomColor(currentBgColor));
       }, 20000);
     }, 10000);
+
+    return () => {
+      clearTimeout(timeout);
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
   }, []);
   return (
     <div

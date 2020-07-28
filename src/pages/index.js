@@ -17,36 +17,57 @@ const IndexPage = () => (
       </p>
       <ul className={landingStyles.links}>
         <li className={landingStyles.linkItem}>
-          <a href="https://medium.com/@metalex9" target="_blank">
-            Medium
-          </a>
-        </li>
-        <li className={landingStyles.linkItem}>
-          @
-          <a href="https://twitter.com/alex_bainter" target="_blank">
-            alex_bainter
-          </a>{' '}
-          (Twitter)
-        </li>
-        <li className={landingStyles.linkItem}>
-          @
-          <a href="https://www.instagram.com/alex.bainter/" target="_blank">
-            alex.bainter
-          </a>{' '}
-          (Instagram)
-        </li>
-        <li className={landingStyles.linkItem}>
-          <a href="https://tinyletter.com/alexbainter" target="_blank">
-            Newsletter
-          </a>
-        </li>
-        <li className={landingStyles.linkItem}>
           <a href={`mailto:alex@alexbainter.com?subject="Hi"`}>
             alex@alexbainter.com
           </a>
         </li>
         <li className={landingStyles.linkItem}>
-          <Link to="/tip">Tip me</Link>
+          <a
+            href="https://medium.com/@metalex9"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Medium
+          </a>
+        </li>
+        <li className={landingStyles.linkItem}>
+          <a
+            href="https://twitter.com/alex_bainter"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            @alex_bainter (Twitter)
+          </a>
+        </li>
+        <li className={landingStyles.linkItem}>
+          <a
+            href="https://www.instagram.com/alex.bainter/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            @alex.bainter (Instagram)
+          </a>
+        </li>
+        <li className={landingStyles.linkItem}>
+          <a
+            href="https://tinyletter.com/alexbainter"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Newsletter
+          </a>
+        </li>
+        <li className={landingStyles.linkItem}>
+          <a
+            href="https://www.patreon.com/alexbainter"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Patreon
+          </a>
+        </li>
+        <li className={landingStyles.linkItem}>
+          <Link to="/tip">Tips</Link>
         </li>
       </ul>
       <p>Scroll down to see some of my work.</p>

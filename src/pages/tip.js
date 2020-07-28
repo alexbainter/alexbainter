@@ -19,12 +19,20 @@ const TipPage = () => (
       </p>
       <ul className={landingStyles.links}>
         <li className={landingStyles.linkItem}>
-          <a href="https://www.patreon.com/bePatron?u=2484731" target="_blank">
+          <a
+            href="https://www.patreon.com/bePatron?u=2484731"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             Patreon
           </a>
         </li>
         <li className={landingStyles.linkItem}>
-          <a href="https://paypal.me/alexbainter" target="_blank">
+          <a
+            href="https://paypal.me/alexbainter"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             PayPal
           </a>
         </li>
