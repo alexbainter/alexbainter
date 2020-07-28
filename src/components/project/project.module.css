@@ -23,7 +23,6 @@ h1 {
 .container a:hover {
   background-position: -100% 0;
   color: white;
-  border-bottom: none;
 }
 
 .icon {
