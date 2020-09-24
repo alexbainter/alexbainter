@@ -29,6 +29,15 @@ const TipPage = () => (
         </li>
         <li className={landingStyles.linkItem}>
           <a
+            href="https://alexbainter.bandcamp.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Bandcamp
+          </a>
+        </li>
+        <li className={landingStyles.linkItem}>
+          <a
             href="https://paypal.me/alexbainter"
             target="_blank"
             rel="noreferrer noopener"

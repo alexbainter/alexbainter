@@ -67,6 +67,15 @@ const IndexPage = () => (
           </a>
         </li>
         <li className={landingStyles.linkItem}>
+          <a
+            href="https://alexbainter.bandcamp.com"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Bandcamp
+          </a>
+        </li>
+        <li className={landingStyles.linkItem}>
           <Link to="/tip">Tips</Link>
         </li>
       </ul>

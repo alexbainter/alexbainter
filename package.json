@@ -32,7 +32,7 @@
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\"",
     "prod": "gatsby build && gatsby serve",
-    "deploy": "gatsby build && node -r dotenv/config node_modules/.bin/s3-sync deploy"
+    "deploy": "gatsby build && node -r dotenv/config node_modules/.bin/s3-sync deploy --dir public"
   },
   "devDependencies": {
     "@alexbainter/s3-sync": "^0.1.4",
