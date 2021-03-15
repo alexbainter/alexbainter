@@ -8,5 +8,5 @@ module.exports = {
   loop and then corrupts the audio data while the music plays, allowing the
   listener to hear the result of data corruption. Listen as peaceful piano notes are
   slowly transformed into white noise.`,
-  order: 1,
+  order: 3,
 };

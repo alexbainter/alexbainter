@@ -9,6 +9,7 @@
 .content {
   padding: 0 2em;
   border-radius: 10px;
+  font-size: 0.9em;
 }
 
 .font-weight-normal {
@@ -16,7 +17,7 @@
 }
 
 .content h1 {
-  font-size: 3em;
+  font-size: 2.5em;
   margin: 0.5em 0;
 }
 
@@ -44,7 +45,7 @@
 }
 
 .link-item {
-  margin: 0.5em 0;
+  margin: 1em 0;
 }
 
 .link-item-small {
@@ -65,6 +66,11 @@
 @media (min-width: 768px) {
   .container {
     align-items: center;
+    font-size: 1em;
+  }
+
+  .container h1 {
+    font-size: 3em;
   }
 
   .container h3 {

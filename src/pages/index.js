@@ -18,16 +18,16 @@ const IndexPage = () => (
       <ul className={landingStyles.links}>
         <li className={landingStyles.linkItem}>
           <a href={`mailto:alex@alexbainter.com?subject="Hi"`}>
-            alex@alexbainter.com
+            Email me at alex@alexbainter.com
           </a>
         </li>
         <li className={landingStyles.linkItem}>
           <a
-            href="https://medium.com/@metalex9"
+            href="https://medium.com/@alexbainter"
             target="_blank"
             rel="noreferrer noopener"
           >
-            Medium
+            Read my Medium posts
           </a>
         </li>
         <li className={landingStyles.linkItem}>
@@ -36,7 +36,7 @@ const IndexPage = () => (
             target="_blank"
             rel="noreferrer noopener"
           >
-            @alex_bainter (Twitter)
+            View Twitter (@alex_bainter)
           </a>
         </li>
         <li className={landingStyles.linkItem}>
@@ -45,7 +45,7 @@ const IndexPage = () => (
             target="_blank"
             rel="noreferrer noopener"
           >
-            @alex.bainter (Instagram)
+            View Instagram (@alex.bainter)
           </a>
         </li>
         <li className={landingStyles.linkItem}>
@@ -54,7 +54,7 @@ const IndexPage = () => (
             target="_blank"
             rel="noreferrer noopener"
           >
-            Newsletter
+            Sign up for my newsletter
           </a>
         </li>
         <li className={landingStyles.linkItem}>
@@ -63,7 +63,7 @@ const IndexPage = () => (
             target="_blank"
             rel="noreferrer noopener"
           >
-            Patreon
+            Join my Patreon
           </a>
         </li>
         <li className={landingStyles.linkItem}>
@@ -72,11 +72,11 @@ const IndexPage = () => (
             target="_blank"
             rel="noreferrer noopener"
           >
-            Bandcamp
+            Download my music
           </a>
         </li>
         <li className={landingStyles.linkItem}>
-          <Link to="/tip">Tips</Link>
+          <Link to="/tip">Sponsor my work</Link>
         </li>
       </ul>
       <p>Scroll down to see some of my work.</p>
