@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-web:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,7 +15,7 @@ jobs:
         run: npm ci
 
       - name: Build production artifacts
-        run: npm run build
+        run: npm run build:production
 
       - name: Archive production artifiacts
         uses: actions/upload-artifact@v2
@@ -23,8 +23,8 @@ jobs:
           name: dist
           path: dist
 
-  deploy-web:
-    needs: build-web
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
