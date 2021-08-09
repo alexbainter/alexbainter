@@ -2,13 +2,17 @@
 <html>
   <head>
     <title>alexbainter.com</title>
-    <link href="styles.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1" />
+    <link href="<%= require('./styles.css').default %>" rel="stylesheet" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="<%= require('./favicon.ico').default %>"
+    />
     <link
       rel="icon"
       type="image/png"
-      href="/favicon-32x32.png?v=1"
+      href="<%= require('./favicon-32x32.png').default %>"
       sizes="32x32"
     />
   </head>
@@ -26,7 +30,7 @@
       <p><a href="https://github.com/metalex9">github</a></p>
       <p><a href="https://alexbainter.bandcamp.com">bandcamp</a></p>
       <p><a href="https://play.generative.fm/donate">sponsor</a></p>
-      <p>---</p>
+      <p>--</p>
       <p><a href="https://generative.fm">generative.fm</a></p>
       <p><a href="https://blossom.alexbainter.com">blossom</a></p>
       <p>
